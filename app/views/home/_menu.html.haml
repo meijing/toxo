@@ -1,0 +1,41 @@
+.bs-docs-section.clearfix
+  .row
+    .col-lg-12
+      .bs-component
+        .navbar.navbar-inverse
+          .navbar-collapse.collapse.navbar-inverse-collapse
+            %ul.nav.navbar-nav
+              %li
+                = link_to 'Quienes somos', inicio_path
+
+              %li.dropdown
+                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                  Nuestras marcas
+                  %b.caret
+                %ul.dropdown-menu                  
+                  -Mark.all.each do |mark|
+                    %li
+                      = link_to productos_path(:mark_id => mark.id) do
+                        =image_tag mark.image.url(:thumb)
+                        =mark.name
+                    %li.divider
+
+              %li.dropdown
+                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                  Productos
+                  %b.caret
+                %ul.dropdown-menu
+                  -Category.all.each do |cat|
+                    %li
+                      = link_to cat.name, marks_path
+                      %ul
+                        -cat.product_type.each do |pt|
+                          -if !pt.name.nil?
+                            %li
+                              = link_to pt.name, marks_path
+                    %li.divider
+
+              %li
+                = link_to 'Ofertas', marks_path
+              %li
+                = link_to 'Contacto', contacto_path

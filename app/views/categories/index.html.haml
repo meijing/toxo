@@ -1,0 +1,29 @@
+.container
+  .col-lg-12
+    .page-header
+      %h1 Toxo Piel: Categorías
+    .bs-component
+      .well
+        %p
+          = link_to 'Crear categoría', new_category_path, :class=>'btn btn-primary'
+
+        %table.table.table-striped.table-hover
+          %tr.info
+            %th.th
+              Nombre
+            %th.th
+              Acciones
+          -@categories.each do |category|
+            %tr.warning
+              %td.td
+                = category.name
+              %td.td
+                = link_to (image_tag 'lapiz.jpg', :size=>'20x20'), category_path(category)
+                = link_to (image_tag 'delete.jpg', :size=>'20x20'), category, method: :delete, data: { confirm: '¿Está seguro de borrar la categoría?' }
+
+        - if @categories.empty?
+          .alert.alert-dismissable.alert-danger
+            %p No se han encontrado categorías
+
+        = link_to 'Volver al índice', administracion_path, :class=>'btn btn-danger'
+          

@@ -1,0 +1,42 @@
+.container
+  .bs-docs-section
+    .row
+      .col-lg-12
+        .page-header
+          %h3 Información del producto
+
+  .col-lg-6
+    .well
+      .bs-component
+        .panel.panel-primary
+          .panel-heading
+            = t('product.data')
+          %p
+            %b= t('product.name')+': '
+            = @product.name
+          %p
+            %b= t('product.description')+': '
+            = @product.description
+          %p
+            = image_tag @product.image.url(:medium) 
+
+        .panel.panel-primary
+          .panel-heading
+            = t('product.mark_asociated')
+
+          .panel-body
+            -Mark.all.each do |cat|
+              -@mark_associated.each do |pt|
+                -if (cat.id == pt.id)
+                  .col-lg-4
+                    .well.well-sm
+                      = cat.name
+
+  .col-lg-6
+    .well
+      .bs-component
+        %p
+          =link_to 'Modificar datos', edit_product_path(@product,:mark_id=>@mark_id), :class=>'btn btn-primary'
+
+  .col-lg-12
+    = link_to 'Volver a la lista de productos', products_path(:mark_id=>@mark_id), :class=>'btn btn-danger'

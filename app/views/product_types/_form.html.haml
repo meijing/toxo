@@ -1,0 +1,34 @@
+.row
+  .col-lg-6
+    .well.bs-component
+      .form-horizontal
+        = form_for @product_type do |f|
+          - if @product_type.errors.any?
+            #error_explanation
+              .alert.alert-dismissable.alert-danger
+                %h4= "Se ha encontrado #{pluralize(@product_type.errors.count, "error")}"
+                = error_messages_for @product_type
+          .form-group
+            = f.label :name, :class=>'col-lg-2 control-label'
+            .col-lg-10
+              = f.text_field :name, :class=>'form-control'
+
+          .form-group
+            .col-lg-2.control-label
+              %b
+                = t('product_type.categories_asociated')
+            .col-lg-10
+              .panel.panel-default
+                .panel-body
+                  - Category.all.each do |acat|
+                    -if !@categories_associated.nil?
+                      =check_box_tag "product_types[categories][]", acat.id, @categories_associated.include?(acat)
+                    -else
+                      =check_box_tag "product_types[categories][]", acat.id, false
+                    =acat.name
+                    %br
+
+
+          .form-group
+            .col-lg-10.col-lg-offset-2
+              = f.submit 'Guardar', :class=>'btn btn-primary foo'

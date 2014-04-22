@@ -1,0 +1,36 @@
+.container
+  .col-lg-12
+    .page-header
+      %h1 Toxo Piel: Tipos de productos
+    .bs-component
+      .well
+        %p
+          = link_to 'Crear tipo de producto', new_product_type_path(:category_id=>@category_id), :class=>'btn btn-primary'
+
+        %table.table.table-striped.table-hover
+          %tr.info
+            %th.th
+              Nombre
+            -@categories.each do |category|
+              %th.th
+                =category.name
+            %th.th
+              Acciones
+          -@product_types.each do |product_type|
+            %tr.warning
+              %td.td
+                = product_type.name
+              -@categories.each do |category|
+                %td.td
+                  -if has_relation(category.id, product_type.id)
+                    = image_tag 'check.png', :size=>'20x20'
+                    
+              %td.td
+                = link_to (image_tag 'lapiz.jpg', :size=>'20x20'), product_type_path(product_type,:category_id=>@category_id)
+                = link_to (image_tag 'delete.jpg', :size=>'20x20'), product_type, method: :delete, data: { confirm: '¿Está seguro de borrar el tipo de producto?' }
+
+        - if @product_types.empty?
+          .alert.alert-dismissable.alert-danger
+            %p No se han encontrado tipos de producto
+
+        = link_to 'Volver al índice', administracion_path, :class=>'btn btn-danger'

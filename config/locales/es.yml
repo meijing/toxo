@@ -1,0 +1,51 @@
+es:
+  activerecord:
+    attributes:
+      category:
+        name: Nombre
+      product_type:
+        name: Nombre
+      mark:
+        name: Nombre
+      product:
+        name: Nombre
+        description: Descripción
+    errors:
+      title: Se han producido errores
+      models:
+        category:
+          attributes:
+            name:
+              blank: "- No puede quedar en blanco"
+        product_type:
+          attributes:
+            name:
+              blank: "- No puede quedar en blanco"
+        mark:
+          attributes:
+            name:
+              blank: "- No puede quedar en blanco"
+        product:
+          attributes:
+            name:
+              blank: "- No puede quedar en blanco"
+
+  categories:
+    data: Datos
+    name: Nombre
+
+  product_type:
+    data: Datos
+    categories_asociated: Categorías asociadas
+    name: Nombre
+
+  mark:
+    data: Datos
+    product_type_asociated: Tipos de productos asociados
+    name: Nombre
+
+  product:
+    data: Datos
+    mark_asociated: Marcas asociadas
+    name: Nombre
+    description: Descripción

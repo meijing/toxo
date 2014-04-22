@@ -1,0 +1,10 @@
+.container
+  .bs-docs-section
+    .row
+      .col-lg-12
+        .page-header
+          %h3 Nueva marca
+
+    = render 'form'
+
+    = link_to 'Volver a la lista de marcas', marks_path(:product_type_id=>@product_type_id), :class=>'btn btn-danger'

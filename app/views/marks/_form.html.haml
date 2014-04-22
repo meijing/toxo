@@ -1,0 +1,39 @@
+.row
+  .col-lg-6
+    .well.bs-component
+      .form-horizontal
+        = form_for @mark do |f|
+          - if @mark.errors.any?
+            #error_explanation
+              .alert.alert-dismissable.alert-danger
+                %h4= "Se ha encontrado #{pluralize(@mark.errors.count, "error")}"
+                = error_messages_for @mark
+          .form-group
+            = f.label :name, :class=>'col-lg-2 control-label'
+            .col-lg-10
+              = f.text_field :name, :class=>'form-control'
+
+          .form-group
+            = f.label :image
+            .col-lg-10
+              = f.file_field :image
+
+          .form-group
+            .col-lg-2.control-label
+              %b
+                = t('mark.product_type_asociated')
+            .col-lg-10
+              .panel.panel-default
+                .panel-body
+                  - ProductType.all.each do |acat|
+                    -if !@product_type_associated.nil?
+                      =check_box_tag "marks[product_types][]", acat.id, @product_type_associated.include?(acat)
+                    -else
+                      =check_box_tag "marks[product_types][]", acat.id, false
+                    =acat.name
+                    %br
+
+
+          .form-group
+            .col-lg-10.col-lg-offset-2
+              = f.submit 'Guardar', :class=>'btn btn-primary foo'

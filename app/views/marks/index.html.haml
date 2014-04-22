@@ -1,0 +1,37 @@
+.container
+  .col-lg-12
+    .page-header
+      %h1 Toxo Piel: Marcas
+    .bs-component
+      .well
+        %p
+          = link_to 'Crear una marca', new_mark_path(:product_type_id=>@product_type_id), :class=>'btn btn-primary'
+
+        %table.table.table-striped.table-hover
+          %tr.info
+            %th.th
+              Nombre
+            %th.th
+              Tipos de productos
+            %th.th
+              Acciones
+          -@marks.each do |mark|
+            %tr.warning
+              %td.td
+                = image_tag mark.image.url(:thumb)
+                = mark.name
+
+              %td.td
+                -if !mark.product_type.nil?
+                  -mark.product_type.each do |mpt|
+                    = mpt.name.concat(' - ')
+
+              %td.td
+                = link_to (image_tag 'lapiz.jpg', :size=>'20x20'), mark_path(mark,:product_type_id=>@product_type_id)
+                = link_to (image_tag 'delete.jpg', :size=>'20x20'), mark, method: :delete, data: { confirm: '¿Está seguro de borrar la marca?' }
+
+        - if @marks.empty?
+          .alert.alert-dismissable.alert-danger
+            %p No se han encontrado marcas
+
+        = link_to 'Volver al índice', administracion_path, :class=>'btn btn-danger'

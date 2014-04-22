@@ -1,0 +1,18 @@
+.alert.alert-dismissable.alert-success
+  -if !@mark.nil?
+    -@category_prints = Array.new
+    -@mark.product_type.each do |tp|
+      - tp.category.each do |c|
+        -if !@category_prints.include?(c.id)
+          -@exists =false
+          -@category_prints.each do |cp|
+            -if cp == c.id
+              -@exists = true
+          -if !@exists
+            -@category_prints<<c.id
+            = link_to c.name, productos_path(:mark_id=>@mark.id, :category_id => c.id), :class =>'btn btn-primary btn-xs btn-success'
+          %ul
+
+          -c.product_type.each do |tp1|
+            %li
+              = tp1.name

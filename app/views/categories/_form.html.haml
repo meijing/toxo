@@ -1,0 +1,18 @@
+.row
+  .col-lg-6
+    .well.bs-component
+      .form-horizontal
+        = form_for @category do |f|
+          - if @category.errors.any?
+            #error_explanation
+              .alert.alert-dismissable.alert-danger
+                %h4= "Se ha encontrado #{pluralize(@category.errors.count, "error")}"
+                = error_messages_for @category
+          .form-group
+            = f.label :name, :class=>'col-lg-2 control-label'
+            .col-lg-10
+              = f.text_field :name, :class=>'form-control'
+
+          .form-group
+            .col-lg-10.col-lg-offset-2
+              = f.submit 'Guardar', :class=>'btn btn-primary'

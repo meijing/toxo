@@ -1,0 +1,39 @@
+.container
+  .bs-docs-section
+    .row
+      .col-lg-12
+        .page-header
+          %h3 Información del tipo de producto
+
+  .col-lg-6
+    .well
+      .bs-component
+        .panel.panel-primary
+          .panel-heading
+            = t('product_type.data')
+          %p
+            %b= t('product_type.name')+': '
+            = @product_type.name
+
+        .panel.panel-primary
+          .panel-heading
+            = t('product_type.categories_asociated')
+
+          .panel-body
+            -Category.all.each do |cat|
+              -@categories_associated.each do |category|
+                -if (cat.id == category.id)
+                  .col-lg-4
+                    .well.well-sm
+                      = cat.name
+
+  .col-lg-6
+    .well
+      .bs-component
+        %p
+          =link_to 'Modificar datos', edit_product_type_path(@product_type,:category_id=>@category_id), :class=>'btn btn-primary'
+        %p
+          =link_to 'Ver marcas asociadas', marks_path(:product_type_id => @product_type.id), :class=>'btn btn-success'
+
+  .col-lg-12
+    = link_to 'Volver a la lista de tipos de productos', product_types_path(:category_id=>@category_id), :class=>'btn btn-danger'
