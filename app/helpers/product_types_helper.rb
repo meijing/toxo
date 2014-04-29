@@ -9,5 +9,5 @@ module ProductTypesHelper
     return true
   end
 
-    
+
 end

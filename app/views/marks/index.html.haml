@@ -10,6 +10,7 @@
         %table.table.table-striped.table-hover
           %tr.info
             %th.th
+            %th.th
               Nombre
             %th.th
               Tipos de productos
@@ -18,8 +19,12 @@
           -@marks.each do |mark|
             %tr.warning
               %td.td
-                = image_tag mark.image.url(:thumb)
-                = mark.name
+                = link_to (image_tag 'up.png', :size=>'25x25'), up_mark_path(:mark_id => mark.id)
+                = link_to (image_tag 'down.png', :size=>'25x25'), down_mark_path(:mark_id => mark.id)
+              %td.td
+                = link_to edit_mark_path(mark,:product_type_id=>@product_type_id,:category_id=>@category_id) do
+                  = image_tag mark.image.url(:thumb)
+                  = mark.name
 
               %td.td
                 -if !mark.product_type.nil?
@@ -27,7 +32,7 @@
                     = mpt.name.concat(' - ')
 
               %td.td
-                = link_to (image_tag 'lapiz.jpg', :size=>'20x20'), mark_path(mark,:product_type_id=>@product_type_id)
+                -set_params(@category_id, @product_type_id, nil)
                 = link_to (image_tag 'delete.jpg', :size=>'20x20'), mark, method: :delete, data: { confirm: '¿Está seguro de borrar la marca?' }
 
         - if @marks.empty?

@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140419180433) do
+ActiveRecord::Schema.define(version: 20140424221240) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "priority"
   end
 
   create_table "category_product_types", force: true do |t|
@@ -31,13 +32,7 @@ ActiveRecord::Schema.define(version: 20140419180433) do
     t.integer  "product_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "mark_products", force: true do |t|
-    t.integer  "mark_id"
-    t.integer  "product_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "category_id"
   end
 
   create_table "marks", force: true do |t|
@@ -49,6 +44,7 @@ ActiveRecord::Schema.define(version: 20140419180433) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "priority"
   end
 
   create_table "product_types", force: true do |t|
@@ -66,6 +62,9 @@ ActiveRecord::Schema.define(version: 20140419180433) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "mark_id"
+    t.integer  "product_type_id"
+    t.integer  "category_id"
   end
 
 end

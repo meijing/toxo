@@ -7,4 +7,4 @@
 
     = render 'form'
 
-    = link_to 'Volver atrás', product_path(@product,:mark_id=>@mark_id), :class=>'btn btn-danger'
+    = link_to 'Volver atrás', products_path(:category_id => @category_id, :product_type_id => @product_type_id, :mark_id => @mark_id), :class=>'btn btn-danger'

@@ -3,6 +3,7 @@
     .well.bs-component
       .form-horizontal
         = form_for @mark do |f|
+          -set_params(@category_id, @product_type_id, nil)
           - if @mark.errors.any?
             #error_explanation
               .alert.alert-dismissable.alert-danger
@@ -25,15 +26,23 @@
             .col-lg-10
               .panel.panel-default
                 .panel-body
-                  - ProductType.all.each do |acat|
-                    -if !@product_type_associated.nil?
-                      =check_box_tag "marks[product_types][]", acat.id, @product_type_associated.include?(acat)
-                    -else
-                      =check_box_tag "marks[product_types][]", acat.id, false
-                    =acat.name
+                  - Category.all.order(:name).each do |cat|
+                    .btn-xs.btn-success
+                      =cat.name
+                    %br
+                    - cat.product_type.order(:name).each do |pt|
+                      -if !@product_type_associated.nil?
+                        =check_box_tag "marks[product_types][]", [pt.id, cat.id], @product_type_associated.include?(pt)
+                      -else
+                        =check_box_tag "marks[product_types][]", [pt.id, cat.id], false
+                      =pt.name
+                      %br
                     %br
 
 
           .form-group
             .col-lg-10.col-lg-offset-2
               = f.submit 'Guardar', :class=>'btn btn-primary foo'
+
+  .col-lg-6
+    =link_to 'Ver productos asociados', products_path(:category_id => @category_id,:product_type_id => @product_type_id,:mark_id => @mark.id), :class=>'btn btn-success'

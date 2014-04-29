@@ -5,12 +5,12 @@ class ProductTypesController < ApplicationController
   # GET /product_types.json
   def index
     if params[:category_id].nil?
-      @product_types = ProductType.all
+      @product_types = ProductType.all.order(:name)
     else
-      @product_types = Category.find(params[:category_id]).product_type
+      @product_types = Category.find(params[:category_id]).product_type.order(:name)
       @category_id = params[:category_id]
     end
-    @categories = Category.all
+    @categories = Category.all.order(:name)
   end
 
   # GET /product_types/1
@@ -44,7 +44,9 @@ class ProductTypesController < ApplicationController
           save_relation_with_categories @categories
         end
 
-        format.html { redirect_to @product_type, notice: 'Product type was successfully created.' }
+        @category_id = session[:category_id]
+        session[:category_id] = nil
+        format.html { redirect_to product_types_path(:category_id => @category_id), notice: 'Product type was successfully created.' }
         format.json { render action: 'show', status: :created, location: @product_type }
       else
         format.html { render action: 'new' }
@@ -66,8 +68,10 @@ class ProductTypesController < ApplicationController
           @categories = params[:product_types][:categories]
           save_relation_with_categories @categories
         end
-        
-        format.html { redirect_to @product_type, notice: 'Product type was successfully updated.' }
+
+        @category_id = session[:category_id]
+        session[:category_id] = nil
+        format.html { redirect_to product_types_path(:category_id => @category_id), notice: 'Product type was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -82,10 +86,10 @@ class ProductTypesController < ApplicationController
     destroy_relations_with_categories @product_type.id
     @product_type.destroy
 
-    respond_to do |format|
-      format.html { redirect_to product_types_url }
-      format.json { head :no_content }
-    end
+    @category_id = session[:category_id]
+    session[:category_id] = nil
+    redirect_to product_types_path(:category_id => @category_id)
+    
   end
 
   private

@@ -18,6 +18,9 @@ Toxo::Application.routes.draw do
   match 'contact' => 'home#contact', :as =>'contacto', :via =>:get
   match 'productos' => 'home#products', :as =>'productos', :via =>:get
 
+  match 'up' => 'marks#up', :as =>'up_mark', :via =>:get
+  match 'down' => 'marks#down', :as =>'down_mark', :via =>:get
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

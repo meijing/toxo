@@ -4,6 +4,5 @@ class Mark < ActiveRecord::Base
   validates :name, :presence => true
   has_many :mark_product_types
   has_many :product_type, :through=> :mark_product_types
-  has_many :mark_products
-  has_many :product, :through=> :mark_products
+  has_many :products
 end

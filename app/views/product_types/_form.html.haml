@@ -3,6 +3,7 @@
     .well.bs-component
       .form-horizontal
         = form_for @product_type do |f|
+          -set_params(@category_id, nil, nil)
           - if @product_type.errors.any?
             #error_explanation
               .alert.alert-dismissable.alert-danger
@@ -32,3 +33,6 @@
           .form-group
             .col-lg-10.col-lg-offset-2
               = f.submit 'Guardar', :class=>'btn btn-primary foo'
+
+  .col-lg-6
+    =link_to 'Ver marcas asociadas', marks_path(:category_id => @category_id,:product_type_id => @product_type.id), :class=>'btn btn-success'

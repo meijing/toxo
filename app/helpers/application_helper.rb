@@ -11,5 +11,11 @@ module ApplicationHelper
         end
      end
   end
+
+  def set_params(category_id, product_type_id, mark_id)
+    session[:category_id] = category_id
+    session[:product_type_id] = product_type_id
+    session[:mark_id] = mark_id
+  end
   
 end

@@ -4,4 +4,5 @@ class ProductType < ActiveRecord::Base
   has_many :category, :through=> :category_product_types
   has_many :mark_product_types
   has_many :mark, :through=> :mark_product_types
+
 end

@@ -16,9 +16,8 @@
           -@categories.each do |category|
             %tr.warning
               %td.td
-                = category.name
+                = link_to category.name, edit_category_path(category)
               %td.td
-                = link_to (image_tag 'lapiz.jpg', :size=>'20x20'), category_path(category)
                 = link_to (image_tag 'delete.jpg', :size=>'20x20'), category, method: :delete, data: { confirm: '¿Está seguro de borrar la categoría?' }
 
         - if @categories.empty?

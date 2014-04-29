@@ -16,3 +16,6 @@
           .form-group
             .col-lg-10.col-lg-offset-2
               = f.submit 'Guardar', :class=>'btn btn-primary'
+
+  .col-lg-6
+    =link_to 'Ver Tipos de productos asociados', product_types_path(:category_id => @category.id), :class=>'btn btn-success'

@@ -5,10 +5,18 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     if params[:mark_id].nil?
-      @products = Product.all
+      @products = Product.all.order(:name)
     else
-      @products = Mark.find(params[:mark_id]).product
       @mark_id = params[:mark_id]
+      @product_type_id = params[:product_type_id]
+      @category_id = params[:category_id]
+      if !@category_id.nil? && !@product_type_id.nil? && !@mark_id.nil?
+        @products = Product.where('category_id = ? and product_type_id = ? and mark_id = ?', @category_id, @product_type_id, @mark_id).order(:name)
+      elsif !@mark_id.nil?
+          @products = Product.where('mark_id = ?', @mark_id).order(:name)
+      else
+        @products = Product.all.order(:name)
+      end
     end
   end
 
@@ -16,18 +24,24 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @mark_id = params[:mark_id]
+    @product_type_id = params[:product_type_id]
+    @category_id = params[:category_id]
     @mark_associated = @product.mark
   end
 
   # GET /products/new
   def new
     @mark_id = params[:mark_id]
+    @product_type_id = params[:product_type_id]
+    @category_id = params[:category_id]
     @product = Product.new
   end
 
   # GET /products/1/edit
   def edit
     @mark_id = params[:mark_id]
+    @product_type_id = params[:product_type_id]
+    @category_id = params[:category_id]
     @mark_associated = @product.mark
   end
 
@@ -35,15 +49,18 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
-
+    
     respond_to do |format|
       if @product.save
-        if !params[:products].nil?
-          @marks = params[:products][:marks]
-          save_relation_with_marks @marks
-        end
 
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        @category_id = session[:category_id]
+        session[:category_id] = nil
+        @product_type_id = session[:product_type_id]
+        session[:product_type_id] = nil
+        @mark_id = session[:mark_id]
+        session[:mark_id] = nil
+
+        format.html { redirect_to products_path(:category_id => @category_id, :product_type_id => @product_type_id, :mark_id => @mark_id), notice: 'Product was successfully created.' }
         format.json { render action: 'show', status: :created, location: @product }
       else
         format.html { render action: 'new' }
@@ -57,16 +74,14 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
+        @category_id = session[:category_id]
+        session[:category_id] = nil
+        @product_type_id = session[:product_type_id]
+        session[:product_type_id] = nil
+        @mark_id = session[:mark_id]
+        session[:mark_id] = nil
 
-        if params[:products].nil?
-          destroy_relations_with_marks @product.id
-        else
-          destroy_relations_with_marks @product.id
-          @marks = params[:products][:marks]
-          save_relation_with_marks @marks
-        end
-
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+        format.html { redirect_to products_path(:category_id => @category_id, :product_type_id => @product_type_id, :mark_id => @mark_id), notice: 'Product was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -78,12 +93,16 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
-    destroy_relations_with_marks @product.id
     @product.destroy
-    respond_to do |format|
-      format.html { redirect_to products_url }
-      format.json { head :no_content }
-    end
+
+    @category_id = session[:category_id]
+    session[:category_id] = nil
+    @product_type_id = session[:product_type_id]
+    session[:product_type_id] = nil
+    @mark_id = session[:mark_id]
+    session[:mark_id] = nil
+    
+    redirect_to products_path(:category_id => @category_id, :product_type_id => @product_type_id, :mark_id => @mark_id)
   end
 
   private
@@ -94,7 +113,7 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :description, :image)
+      params.require(:product).permit(:name, :description, :image, :product_type_id, :category_id, :mark_id)
     end
 
     def save_relation_with_marks marks
@@ -113,10 +132,4 @@ class ProductsController < ApplicationController
       end
     end
 
-    def destroy_relations_with_marks product_id
-      @relations_to_destroy =  MarkProduct.where('product_id=?', product_id)
-      @relations_to_destroy.each do |ctp|
-        ctp.destroy
-      end
-    end
 end
