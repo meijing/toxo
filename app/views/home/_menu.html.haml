@@ -6,34 +6,43 @@
           .navbar-collapse.collapse.navbar-inverse-collapse
             %ul.nav.navbar-nav
               %li
-                = link_to 'Quienes somos', inicio_path
+                = link_to 'Quienes somos', who_are_path
 
               %li.dropdown
                 %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
                   Nuestras marcas
                   %b.caret
-                %ul.dropdown-menu                  
-                  -Mark.all.each do |mark|
+                %ul.dropdown-menu
+                  -Mark.all.order(:priority).in_groups_of(3).each do |mark_group|
                     %li
-                      = link_to productos_path(:mark_id => mark.id) do
-                        =image_tag mark.image.url(:thumb)
-                        =mark.name
+                      -mark_group.each do |mark|
+                        -if !mark.nil?
+                          = link_to productos_path(:mark_id => mark.id) do
+                            =image_tag mark.image.url(:thumb)
+                            =mark.name
                     %li.divider
-
+                  
               %li.dropdown
                 %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
                   Productos
                   %b.caret
+                
                 %ul.dropdown-menu
-                  -Category.all.each do |cat|
+                  -Category.all.order(:name).in_groups_of(3).each do |cat_group|
                     %li
-                      = link_to cat.name, marks_path
-                      %ul
-                        -cat.product_type.each do |pt|
-                          -if !pt.name.nil?
-                            %li
-                              = link_to pt.name, marks_path
-                    %li.divider
+                      .row
+                        -cat_group.each do |cat|
+                          -if !cat.nil?
+                            .col-lg-4
+                              .panel.panel-success
+                                .panel-heading
+                                  %h3.panel-title
+                                    = link_to cat.name, productos_path(:category_id => cat.id)
+                                .panel-body
+                                  %ul
+                                    -cat.product_type.order(:name).each do |pt|
+                                      %li
+                                        = link_to pt.name, productos_path(:category_id=>cat.id, :product_type_id=>pt.id)
 
               %li
                 = link_to 'Ofertas', marks_path

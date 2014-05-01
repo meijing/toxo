@@ -5,19 +5,19 @@ class MarksController < ApplicationController
   # GET /marks.json
   def index
     if params[:product_type_id].nil?
-      @marks = Mark.all.order(:name)
+      @marks = Mark.all.order(:priority)
     else
       @category_id = params[:category_id]
       @product_type_id = params[:product_type_id]
       if !@category_id.nil?
         @marks = Array.new
         Category.find(@category_id).product_type.where('product_types.id = ?',@product_type_id).each do |pt|
-          pt.mark.where('category_id = ?', @category_id).order(:name).each do |m|
+          pt.mark.where('category_id = ?', @category_id).order(:priority).each do |m|
             @marks << m
           end
         end
       else
-        @marks = ProductType.find(@product_type_id).mark.order(:name).uniq
+        @marks = ProductType.find(@product_type_id).mark.order(:priority).uniq
       end
     end
   end
@@ -41,14 +41,14 @@ class MarksController < ApplicationController
   def edit
     @product_type_id = params[:product_type_id]
     @category_id = params[:category_id]
-    @product_type_associated = @mark.product_type
+    @product_type_associated = MarkProductType.where('mark_id = ?', @mark.id)
   end
 
   # POST /marks
   # POST /marks.json
   def create
     @mark = Mark.new(mark_params)
-
+    @mark.priority = Mark.count+1
     respond_to do |format|
       if @mark.save
         if !params[:marks].nil?
@@ -110,6 +110,16 @@ class MarksController < ApplicationController
   end
 
   def up
+    @mark = Mark.find(params[:mark_id])
+    if @mark.priority > 1
+      @previous_mark = Mark.where('priority = ?',@mark.priority-1)
+      @previous_mark.each do |pm|
+        pm.priority = pm.priority + 1
+        pm.save
+      end
+      @mark.priority = @mark.priority - 1
+      @mark.save
+    end
 
     respond_to do |format|
       format.html { redirect_to marks_path }
@@ -117,6 +127,16 @@ class MarksController < ApplicationController
   end
 
   def down
+    @mark = Mark.find(params[:mark_id])
+    if @mark.priority < Mark.count
+      @previous_mark = Mark.where('priority = ?',@mark.priority+1)
+      @previous_mark.each do |pm|
+        pm.priority = pm.priority - 1
+        pm.save
+      end
+      @mark.priority = @mark.priority + 1
+      @mark.save
+    end
 
     respond_to do |format|
       format.html { redirect_to marks_path }

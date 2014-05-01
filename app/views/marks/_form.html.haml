@@ -32,7 +32,7 @@
                     %br
                     - cat.product_type.order(:name).each do |pt|
                       -if !@product_type_associated.nil?
-                        =check_box_tag "marks[product_types][]", [pt.id, cat.id], @product_type_associated.include?(pt)
+                        =check_box_tag "marks[product_types][]", [pt.id, cat.id], checked(cat.id,pt.id,@product_type_associated)
                       -else
                         =check_box_tag "marks[product_types][]", [pt.id, cat.id], false
                       =pt.name

@@ -17,6 +17,7 @@ Toxo::Application.routes.draw do
   match 'home' => 'home#home', :as =>'inicio', :via =>:get
   match 'contact' => 'home#contact', :as =>'contacto', :via =>:get
   match 'productos' => 'home#products', :as =>'productos', :via =>:get
+  match 'who_are' => 'home#who_are', :as =>'who_are', :via =>:get
 
   match 'up' => 'marks#up', :as =>'up_mark', :via =>:get
   match 'down' => 'marks#down', :as =>'down_mark', :via =>:get

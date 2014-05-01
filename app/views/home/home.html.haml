@@ -4,4 +4,25 @@
     
   = render 'menu'
 
-  = render 'who_are'
+  .row
+    .col-lg-2
+      .well
+        -Mark.all.order(:priority).each do |mark|
+          = link_to productos_path(:mark_id => mark.id) do
+            =image_tag mark.image.url(:thumb)
+            =mark.name
+            %br
+            %br
+        
+    .col-lg-8
+      .well
+        =render 'gallery'
+
+    .col-lg-2
+      .well
+        -Mark.all.order(:priority).each do |mark|
+          = link_to productos_path(:mark_id => mark.id) do
+            =image_tag mark.image.url(:thumb)
+            =mark.name
+            %br
+            %br

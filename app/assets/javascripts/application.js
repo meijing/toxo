@@ -12,6 +12,22 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+
 //= require united/loader
 //= require united/bootswatch
+//= require_tree .
+//= require jquery.flexslider
+//= require jquery.flexslider-min
+$(window).load(function() {
+    $('.flexslider').flexslider()({
+    animation: "slide"
+  });
+  });
+
+$(document).ready(function() {
+  $('#ppp').click(function(event){
+      $('.flexslider').flexslider()({
+        animation: "slide"
+      });
+  });
+});

@@ -1,0 +1,10 @@
+.flexslider
+  %ul.slides
+    -Product.all.each do |product|
+      %li
+        = image_tag product.image
+        .carousel-caption
+          %h4
+            =product.name
+          %p
+            =product.description

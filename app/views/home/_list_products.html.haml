@@ -1,18 +1,14 @@
-.alert.alert-dismissable.alert-success
+.panel
   -if !@mark.nil?
-    -@category_prints = Array.new
-    -@mark.product_type.each do |tp|
-      - tp.category.each do |c|
-        -if !@category_prints.include?(c.id)
-          -@exists =false
-          -@category_prints.each do |cp|
-            -if cp == c.id
-              -@exists = true
-          -if !@exists
-            -@category_prints<<c.id
-            = link_to c.name, productos_path(:mark_id=>@mark.id, :category_id => c.id), :class =>'btn btn-primary btn-xs btn-success'
-          %ul
+    =image_tag @mark.image.url(:thumb)
+    =@mark.name
+    %br
+    %br
 
-          -c.product_type.each do |tp1|
-            %li
-              = tp1.name
+  -find_categories(@mark, @category, @product_type).each do |cat|
+    .btn-xs.panel_products_custom
+      = link_to cat.name, productos_path(:mark_id=>get_mark_id(@mark), :category_id=>cat.id), :class =>' btn btn-info'
+      .panel
+        -find_product_types(@mark,cat, @product_type).each do |pt|
+          = link_to pt.name, productos_path(:mark_id=>get_mark_id(@mark), :product_type_id=>pt.id), :class=>'btn btn-link'
+    %br
