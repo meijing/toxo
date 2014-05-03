@@ -13,13 +13,12 @@
                   Nuestras marcas
                   %b.caret
                 %ul.dropdown-menu
-                  -Mark.all.order(:priority).in_groups_of(3).each do |mark_group|
+                  -Mark.all.order(:priority).in_groups_of(4).each do |mark_group|
                     %li
                       -mark_group.each do |mark|
                         -if !mark.nil?
                           = link_to productos_path(:mark_id => mark.id) do
-                            =image_tag mark.image.url(:thumb)
-                            =mark.name
+                            =image_tag mark.image.url(:original)
                     %li.divider
                   
               %li.dropdown
