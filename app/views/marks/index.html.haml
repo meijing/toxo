@@ -12,7 +12,8 @@
             %th.th
             %th.th
               Nombre
-          
+            %th.th
+              Tipos de productos
             %th.th
               Acciones
           -@marks.each do |mark|
@@ -24,6 +25,11 @@
                 = link_to edit_mark_path(mark,:product_type_id=>@product_type_id,:category_id=>@category_id) do
                   = image_tag mark.image.url(:thumb)
                   = mark.name
+
+              %td.td
+                -if !mark.product_type.nil?
+                  -mark.product_type.each do |mpt|
+                    = mpt.name.concat(' - ')
 
               %td.td
                 -set_params(@category_id, @product_type_id, nil)
