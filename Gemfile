@@ -59,3 +59,4 @@ gem 'therubyracer'
 
 gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
 gem 'flexslider'
+gem 'less-rails', '~> 2.5.0'

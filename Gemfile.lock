@@ -155,6 +155,7 @@ DEPENDENCIES
   haml-rails
   jbuilder (~> 1.2)
   jquery-rails
+  less-rails (~> 2.5.0)
   paperclip!
   pg
   rails (= 4.0.2)
