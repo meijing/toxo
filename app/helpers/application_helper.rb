@@ -19,11 +19,11 @@ module ApplicationHelper
   end
 
   def marcas_posicion_par
-    Mark.all.order(:priority).where('priority').where('(priority%2)=0')
+    Mark.all.order(:priority).where('(priority%2)=0')
   end
 
   def marcas_posicion_impar
-    Mark.all.order(:priority).where('priority').where('(priority%2)!=0')
+    Mark.all.order(:priority).where('(priority%2)!=0')
   end
   
 end
