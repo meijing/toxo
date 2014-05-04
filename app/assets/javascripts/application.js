@@ -24,10 +24,3 @@ $(window).load(function() {
   });
   });
 
-$(document).ready(function() {
-  $('#ppp').click(function(event){
-      $('.flexslider').flexslider()({
-        animation: "slide"
-      });
-  });
-});
