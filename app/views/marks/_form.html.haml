@@ -15,6 +15,11 @@
               = f.text_field :name, :class=>'form-control'
 
           .form-group
+            = f.label :hidden, :class=>'col-lg-2 control-label'
+            .col-lg-10
+              = f.check_box :hidden
+
+          .form-group
             = f.label :image
             .col-lg-10
               = f.file_field :image
