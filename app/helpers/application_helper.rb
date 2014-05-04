@@ -17,5 +17,13 @@ module ApplicationHelper
     session[:product_type_id] = product_type_id
     session[:mark_id] = mark_id
   end
+
+  def marcas_posicion_par
+    Mark.all.order(:priority).where('priority').where('(priority%2)==0')
+  end
+
+  def marcas_posicion_impar
+    Mark.all.order(:priority).where('priority').where('(priority%2)!=0')
+  end
   
 end
