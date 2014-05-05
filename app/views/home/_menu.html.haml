@@ -13,7 +13,7 @@
                   Nuestras marcas
                   %b.caret
                 %ul.dropdown-menu
-                  -Mark.all.order(:priority).in_groups_of(4).each do |mark_group|
+                  -Mark.all.where('hidden is null or hidden =0').order(:priority).in_groups_of(4).each do |mark_group|
                     %li
                       -mark_group.each do |mark|
                         -if !mark.nil?

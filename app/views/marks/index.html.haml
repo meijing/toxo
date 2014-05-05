@@ -24,7 +24,10 @@
               %td.td
                 = link_to edit_mark_path(mark,:product_type_id=>@product_type_id,:category_id=>@category_id) do
                   = image_tag mark.image.url(:thumb)
-                  = mark.name
+                  - if (!mark.hidden.nil? && mark.hidden != 0)
+                    = mark.name.concat(' -- OCULTA --')
+                  - else
+                    = mark.name
 
               %td.td
                 -if !mark.product_type.nil?
