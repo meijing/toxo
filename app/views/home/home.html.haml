@@ -16,7 +16,13 @@
         
     .col-lg-8
       .well
-        =render 'gallery'
+        .flexslider
+          %ul.slides
+            %li
+              =image_tag 'area.png'
+            %li
+              =image_tag 'foto_antigua.jpg'
+
 
     .col-lg-2
       .well
