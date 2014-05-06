@@ -1,6 +1,16 @@
 .container
   .page-header
-    %h1 Toxo Piel
+    .row
+      .col-lg-4
+        %h1 Toxo Piel
+        %h5
+          Venta de artículos de viaje, bolsos señora y caballero, billeteras, cinturones, pashminas y regalo en general.
+      .col-lg-8
+        .flexslider
+          %ul.slides
+            %li=image_tag 'area-portada.png', :size=>'600x100'
+            %li=image_tag 'vigo-portada.png', :size=>'600x100'
+            %li=image_tag 'xeral-portada.png', :size=>'600x100'
 
   = render 'menu'
   .well
