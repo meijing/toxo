@@ -7,7 +7,7 @@
   .row
     .col-sm-2
       .well
-        -marcas_posicion_par.each do |mark|
+        -marcas_posicion_impar.each do |mark|
           = link_to productos_path(:mark_id => mark.id) do
             =image_tag mark.image.url(:original)
             %br
@@ -19,7 +19,7 @@
 
     .col-sm-2
       .well
-        -marcas_posicion_impar.each do |mark|
+        -marcas_posicion_par.each do |mark|
           = link_to productos_path(:mark_id => mark.id) do
             =image_tag mark.image.url(:original)
             %br
