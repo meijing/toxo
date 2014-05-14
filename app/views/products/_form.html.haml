@@ -22,8 +22,7 @@
           .form-group
             = f.label :image, :class=>'col-lg-2 control-label'
             .col-lg-9
-              = f.file_field :image, :class=>'form-control'
-              = f.hidden_field :image_cache
+              = f.file_field :image
           - if !@product.image.nil?
             .form-group
               =image_tag @product.image.url(:medium)
