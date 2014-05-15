@@ -1,5 +1,5 @@
 .row
-  .col-lg-6
+  .col-sm-6
     .well.bs-component
       .form-horizontal
         = form_for @product_type do |f|
@@ -10,15 +10,15 @@
                 %h4= "Se ha encontrado #{pluralize(@product_type.errors.count, "error")}"
                 = error_messages_for @product_type
           .form-group
-            = f.label :name, :class=>'col-lg-2 control-label'
-            .col-lg-10
+            = f.label :name, :class=>'col-sm-2 control-label'
+            .col-sm-10
               = f.text_field :name, :class=>'form-control'
 
           .form-group
-            .col-lg-2.control-label
+            .col-sm-2.control-label
               %b
                 = t('product_type.categories_asociated')
-            .col-lg-10
+            .col-sm-10
               .panel.panel-default
                 .panel-body
                   - Category.all.each do |acat|
@@ -31,8 +31,8 @@
 
 
           .form-group
-            .col-lg-10.col-lg-offset-2
+            .col-sm-10.col-sm-offset-2
               = f.submit 'Guardar', :class=>'btn btn-primary foo'
 
-  .col-lg-6
+  .col-sm-6
     =link_to 'Ver marcas asociadas', marks_path(:category_id => @category_id,:product_type_id => @product_type.id), :class=>'btn btn-success'

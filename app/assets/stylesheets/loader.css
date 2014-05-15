@@ -5563,7 +5563,6 @@ button.close {
   background-color: #ffffff;
 }
 .carousel-caption {
-  position: absolute;
   left: 15%;
   right: 15%;
   bottom: 20px;

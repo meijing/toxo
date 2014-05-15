@@ -1,11 +1,11 @@
 .container
   .bs-docs-section
     .row
-      .col-lg-12
+      .col-sm-12
         .page-header
           %h3 Información de la marca
 
-  .col-lg-6
+  .col-sm-6
     .well
       .bs-component
         .panel.panel-primary
@@ -25,11 +25,11 @@
             -ProductType.all.each do |cat|
               -@product_type_associated.each do |pt|
                 -if (cat.id == pt.id)
-                  .col-lg-4
+                  .col-sm-4
                     .well.well-sm
                       = cat.name
 
-  .col-lg-6
+  .col-sm-6
     .well
       .bs-component
         %p
@@ -37,6 +37,6 @@
         %p
           =link_to 'Ver productos asociadas', products_path(:mark_id => @mark.id), :class=>'btn btn-success'
 
-  .col-lg-12
+  .col-sm-12
     = link_to 'Volver a la lista de marcas', marks_path(:product_type_id=>@product_type_id), :class=>'btn btn-danger'
 

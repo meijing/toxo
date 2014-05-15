@@ -1,5 +1,5 @@
 .row
-  .col-lg-12
+  .col-sm-12
     .well.bs-component
       .form-horizontal
         = form_for @product do |f|
@@ -10,39 +10,39 @@
                 %h4= "Se ha encontrado #{pluralize(@product.errors.count, "error")}"
                 = error_messages_for @product
           .form-group
-            = f.label :name, :class=>'col-lg-2 control-label'
-            .col-lg-9
+            = f.label :name, :class=>'col-sm-2 control-label'
+            .col-sm-9
               = f.text_field :name, :class=>'form-control'
 
           .form-group
-            = f.label :description, :class=>'col-lg-2 control-label'
-            .col-lg-9
+            = f.label :description, :class=>'col-sm-2 control-label'
+            .col-sm-9
               = f.text_area :description, :class=>'form-control', :rows=>'7'
 
           .form-group
-            = f.label :image, :class=>'col-lg-2 control-label'
-            .col-lg-9
+            = f.label :image, :class=>'col-sm-2 control-label'
+            .col-sm-9
               = f.file_field :image
           - if !@product.image.nil?
             .form-group
               =image_tag @product.image.url(:medium)
 
           .form-group
-            = f.label :category_id, :class=>'col-lg-2 control-label'
-            .col-lg-9
+            = f.label :category_id, :class=>'col-sm-2 control-label'
+            .col-sm-9
               = f.collection_select :category_id, Category.all.order(:name), :id, :name, :class=>'form-control',:prompt => ''
 
           .form-group
-            = f.label :product_type_id, :class=>'col-lg-2 control-label'
-            .col-lg-9
+            = f.label :product_type_id, :class=>'col-sm-2 control-label'
+            .col-sm-9
               = f.collection_select :product_type_id, ProductType.all.order(:name), :id, :name, :class=>'form-control',:prompt => ''
 
           .form-group
-            = f.label :mark_id, :class=>'col-lg-2 control-label'
-            .col-lg-9
+            = f.label :mark_id, :class=>'col-sm-2 control-label'
+            .col-sm-9
               = f.collection_select :mark_id, Mark.all.order(:name), :id, :name, :class=>'form-control',:prompt => ''
 
 
           .form-group
-            .col-lg-10.col-lg-offset-2
+            .col-sm-10.col-sm-offset-2
               = f.submit 'Guardar', :class=>'btn btn-primary foo'
