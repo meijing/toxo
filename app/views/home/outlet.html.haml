@@ -7,23 +7,6 @@
     .bs-component
       .row
         .col-sm-12
-          %center
-            %h1 OUTLET
-      -@products.in_groups_of(3).each do |p_group|
-        .row
-          .col-sm-12
-            -p_group.each do |p|
-              -if !p.nil?
-                .col-sm-3.alert.alert-dismissable.alert-success
-                  =image_tag p.image.url(:medium)
-                .col-sm-3.alert.alert-dismissable.alert-success
-                  %h4= p.name
-                  %p
-                    =p.description
-  .well
-    .bs-component
-      .row
-        .col-sm-10
           .alert.alert-dismissable.alert-danger
             .row
               .col-sm-10
@@ -31,12 +14,12 @@
                   %h1 OUTLET
             -@products.each do |p|
               .row
-                .col-sm-10
+                .col-sm-12
                   .alert.alert-dismissable.alert-success
                     .row
                       .col-sm-4
                         =image_tag p.image.url(:medium)
-                      .col-sm-5
+                      .col-sm-8
                         %h4= p.name
                         %p
                           =p.description
