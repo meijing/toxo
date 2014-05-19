@@ -1,0 +1,15 @@
+.container
+  =render 'header'
+
+  = render 'menu'
+  .well
+    .bs-component
+      -Mark.all.where('hidden is null or hidden =0').order(:priority).in_groups_of(6).each do |mark_group|
+        .row
+          -mark_group.each do |mark|
+            .col-sm-2
+              -if !mark.nil?
+                = link_to productos_path(:mark_id => mark.id) do
+                  =image_tag mark.image.url(:original)
+
+  = render 'pe'

@@ -8,18 +8,8 @@
               %li
                 = link_to 'Quienes somos', who_are_path
 
-              %li.dropdown
-                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-                  Nuestras marcas
-                  %b.caret
-                %ul.dropdown-menu
-                  -Mark.all.where('hidden is null or hidden =0').order(:priority).in_groups_of(4).each do |mark_group|
-                    %li
-                      -mark_group.each do |mark|
-                        -if !mark.nil?
-                          = link_to productos_path(:mark_id => mark.id) do
-                            =image_tag mark.image.url(:original)
-                    %li.divider
+              %li
+                = link_to 'Nuestras marcas', our_marks_path
                   
               %li.dropdown
                 %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
@@ -43,7 +33,8 @@
                                       %li
                                         = link_to pt.name, productos_path(:category_id=>cat.id, :product_type_id=>pt.id)
 
-              %li
-                = link_to 'Ofertas', inicio_path
+              - if Product.exists_products_outlet
+                %li
+                  = link_to 'Outlet', outlet_path
               %li
                 = link_to 'Contacto', contacto_path

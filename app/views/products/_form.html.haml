@@ -20,6 +20,11 @@
               = f.text_area :description, :class=>'form-control', :rows=>'7'
 
           .form-group
+            = f.label :outlet, :class=>'col-sm-2 control-label'
+            .col-sm-10
+              = f.check_box :outlet
+
+          .form-group
             = f.label :image, :class=>'col-sm-2 control-label'
             .col-sm-9
               = f.file_field :image

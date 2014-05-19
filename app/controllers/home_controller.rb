@@ -8,6 +8,10 @@ class HomeController < ApplicationController
 
   end
 
+  def our_marks
+
+  end
+
   def products
 
     if !params[:mark_id].nil? and !params[:category_id].nil?
@@ -37,5 +41,9 @@ class HomeController < ApplicationController
       @category = Category.find(params[:category_id])
       @products = Product.where('category_id = ?', @category.id)
     end
+  end
+
+  def outlet
+    @products = Product.get_all_products_outlet
   end
 end

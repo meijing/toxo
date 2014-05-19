@@ -1,4 +1,6 @@
 Toxo::Application.routes.draw do
+  resources :promotions
+
   resources :products
 
   resources :marks
@@ -18,6 +20,8 @@ Toxo::Application.routes.draw do
   match 'contact' => 'home#contact', :as =>'contacto', :via =>:get
   match 'productos' => 'home#products', :as =>'productos', :via =>:get
   match 'who_are' => 'home#who_are', :as =>'who_are', :via =>:get
+  match 'outlet' => 'home#outlet', :as =>'outlet', :via =>:get
+  match 'our_marks' => 'home#our_marks', :as =>'our_marks', :via =>:get
 
   match 'up' => 'marks#up', :as =>'up_mark', :via =>:get
   match 'down' => 'marks#down', :as =>'down_mark', :via =>:get
