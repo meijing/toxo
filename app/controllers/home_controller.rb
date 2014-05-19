@@ -12,6 +12,10 @@ class HomeController < ApplicationController
 
   end
 
+  def all_products
+    
+  end
+
   def products
 
     if !params[:mark_id].nil? and !params[:category_id].nil?

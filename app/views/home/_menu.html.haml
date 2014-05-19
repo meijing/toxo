@@ -10,29 +10,10 @@
 
               %li
                 = link_to 'Nuestras marcas', our_marks_path
-                  
-              %li.dropdown
-                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-                  Productos
-                  %b.caret
-                
-                %ul.dropdown-menu
-                  -Category.all.order(:name).in_groups_of(3).each do |cat_group|
-                    %li
-                      .row
-                        -cat_group.each do |cat|
-                          -if !cat.nil?
-                            .col-sm-4
-                              .panel.panel-success
-                                .panel-heading
-                                  %h3.panel-title
-                                    = link_to cat.name, productos_path(:category_id => cat.id)
-                                .panel-body
-                                  %ul
-                                    -cat.product_type.order(:name).each do |pt|
-                                      %li
-                                        = link_to pt.name, productos_path(:category_id=>cat.id, :product_type_id=>pt.id)
 
+              %li
+                = link_to 'Productos', all_products_path
+                  
               - if Product.exists_products_outlet
                 %li
                   = link_to 'Outlet', outlet_path

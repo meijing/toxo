@@ -1,0 +1,22 @@
+.container
+  =render 'header'
+
+  = render 'menu'
+  .well
+    -Category.all.order(:name).in_groups_of(3).each do |cat_group|
+      .row
+        -cat_group.each do |cat|
+          -if !cat.nil?
+            .col-sm-4
+              .panel.panel-success
+                .panel-heading
+                  %h3.panel-title
+                  = link_to cat.name, productos_path(:category_id => cat.id)
+                .panel-body
+                  %ul
+                    -cat.product_type.order(:name).each do |pt|
+                      %li
+                        = link_to pt.name, productos_path(:category_id=>cat.id, :product_type_id=>pt.id)
+
+
+  = render 'pe'
