@@ -1,7 +1,10 @@
-%h1 Editing promotion
+.container
+  .bs-docs-section
+    .row
+      .col-sm-12
+        .page-header
+          %h3 Modificar promoción
 
-= render 'form'
+    = render 'form'
 
-= link_to 'Show', @promotion
-\|
-= link_to 'Back', promotions_path
+    = link_to 'Volver atrás', promotions_path, :class=>'btn btn-danger'

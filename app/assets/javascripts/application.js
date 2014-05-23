@@ -18,9 +18,21 @@
 //= require_tree .
 //= require jquery.flexslider
 //= require jquery.flexslider-min
+//= require bootstrap-datepicker
+//= require jquery.rambling.slider
+
+$(window).load(function() {
+    $('#slider').ramblingSlider();
+});
+
 $(window).load(function() {
     $('.flexslider').flexslider()({
     animation: "slide"
   });
   });
-
+  $('.datepicker').datepicker({
+    format: "dd-mm-yyyy",
+    todayHighlight: true,
+    todayBtn: 'linked',
+    autoclose: true
+  }); ;

@@ -27,6 +27,9 @@ Toxo::Application.routes.draw do
   match 'up' => 'marks#up', :as =>'up_mark', :via =>:get
   match 'down' => 'marks#down', :as =>'down_mark', :via =>:get
 
+  match 'create_sale' => 'product_types#create_sale', :as =>'create_sale', :via =>:get
+  match 'delete_sale' => 'product_types#delete_sale', :as =>'delete_sale', :via =>:get
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -1,17 +1,37 @@
-%h1 Listing promotions
+.container
+  .col-sm-12
+    .page-header
+      %h1 Toxo Piel: Promociones
+    .bs-component
+      .well
+        %p
+          = link_to 'Crear promoción', new_promotion_path, :class=>'btn btn-primary'
 
-%table
-  %tr
-    %th
-    %th
-    %th
+        %table.table.table-striped.table-hover
+          %tr.info
+            %th.th
+              Descripción
+            %th.th
+              Empieza
+            %th.th
+              Acaba
+            %th.th
+              Acciones
+          -@promotions.each do |promo|
+            %tr.warning
+              %td.td
+                = link_to promo.description, edit_promotion_path(promo.id)
 
-  - @promotions.each do |promotion|
-    %tr
-      %td= link_to 'Show', promotion
-      %td= link_to 'Edit', edit_promotion_path(promotion)
-      %td= link_to 'Destroy', promotion, :method => :delete, :data => { :confirm => 'Are you sure?' }
+              %td.td
+                =promo.date_start
+              %td.td
+                =promo.date_end
 
-%br
+              %td.td
+                = link_to (image_tag 'delete.jpg', :size=>'20x20'), promo, method: :delete, data: { confirm: '¿Está seguro de borrar la promoción?' }
 
-= link_to 'New Promotion', new_promotion_path
+        - if @promotions.empty?
+          .alert.alert-dismissable.alert-danger
+            %p No se han encontrado promociones
+
+        = link_to 'Volver al índice', administracion_path, :class=>'btn btn-danger'

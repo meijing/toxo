@@ -12,6 +12,8 @@
  *= require loader
  *= require united/bootswatch
  *= require flexslider.css
+ *= require bootstrap-datepicker
+ *= require jquery.rambling.slider
  */
 
 @import "united/base";

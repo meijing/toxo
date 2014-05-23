@@ -92,6 +92,28 @@ class ProductTypesController < ApplicationController
     
   end
 
+  def create_sale
+    @product_type_id = params[:product_type_id]
+    @category_id = params[:category_id]
+    @relation = CategoryProductType.where('product_type_id = ? and category_id = ?', @product_type_id, @category_id)
+    @relation.each do |rel|
+      rel.sale = 1
+      rel.save
+    end
+    redirect_to edit_product_type_path(@product_type_id)
+  end
+
+  def delete_sale
+    @product_type_id = params[:product_type_id]
+    @category_id = params[:category_id]
+    @relation = CategoryProductType.where('product_type_id = ? and category_id = ?', @product_type_id, @category_id)
+    @relation.each do |rel|
+      rel.sale = 0
+      rel.save
+    end
+    redirect_to edit_product_type_path(@product_type_id)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product_type

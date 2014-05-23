@@ -1,10 +1,28 @@
-= form_for @promotion do |f|
-  - if @promotion.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@promotion.errors.count, "error")} prohibited this promotion from being saved:"
-      %ul
-        - @promotion.errors.full_messages.each do |msg|
-          %li= msg
+.row
+  .col-sm-6
+    .well.bs-component
+      .form-horizontal
+        = form_for @promotion do |f|
+          - if @promotion.errors.any?
+            #error_explanation
+              .alert.alert-dismissable.alert-danger
+                %h4= "Se ha encontrado #{pluralize(@promotion.errors.count, "error")}"
+                = error_messages_for @promotion
+          .form-group
+            = f.label :description, :class=>'col-sm-2 control-label'
+            .col-sm-10
+              = f.text_area :description, :class=>'form-control', :rows=>'7'
 
-  .actions
-    = f.submit 'Save'
+          .form-group
+            = f.label :date_start, :class=>'col-sm-2 control-label'
+            .col-sm-10
+              = f.text_field :date_start, 'data-behaviour' => 'datepicker'
+
+          .form-group
+            = f.label :date_end, :class=>'col-sm-2 control-label'
+            .col-sm-10
+              = f.text_field :date_end, 'data-behaviour' => 'datepicker'
+
+          .form-group
+            .col-sm-10.col-sm-offset-2
+              = f.submit 'Guardar', :class=>'btn btn-primary foo'
