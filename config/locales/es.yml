@@ -15,7 +15,7 @@ es:
         category_id: Categoría
         product_type_id: Tipo de producto
         mark_id: Marca
-      promotions:
+      promotion:
         description: Descripción
         date_start: Empieza en
         date_end: Acaba en

@@ -69,6 +69,6 @@ class PromotionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def promotion_params
-      params.require(:promotion).permit(:description)
+      params.require(:promotion).permit(:description, :date_start, :date_end)
     end
 end

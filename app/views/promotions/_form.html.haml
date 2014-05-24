@@ -9,18 +9,18 @@
                 %h4= "Se ha encontrado #{pluralize(@promotion.errors.count, "error")}"
                 = error_messages_for @promotion
           .form-group
-            = f.label :description, :class=>'col-sm-2 control-label'
-            .col-sm-10
+            = f.label :description, :class=>'col-sm-3 control-label'
+            .col-sm-9
               = f.text_area :description, :class=>'form-control', :rows=>'7'
 
           .form-group
-            = f.label :date_start, :class=>'col-sm-2 control-label'
-            .col-sm-10
+            = f.label :date_start, :class=>'col-sm-3 control-label'
+            .col-sm-9
               = f.text_field :date_start, 'data-behaviour' => 'datepicker'
 
           .form-group
-            = f.label :date_end, :class=>'col-sm-2 control-label'
-            .col-sm-10
+            = f.label :date_end, :class=>'col-sm-3 control-label'
+            .col-sm-9
               = f.text_field :date_end, 'data-behaviour' => 'datepicker'
 
           .form-group
