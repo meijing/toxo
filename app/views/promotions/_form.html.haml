@@ -16,12 +16,18 @@
           .form-group
             = f.label :date_start, :class=>'col-sm-3 control-label'
             .col-sm-9
-              = f.text_field :date_start, 'data-behaviour' => 'datepicker'
+              .input-append.date.datepicker{"data-date" => "12-02-2012", "data-date-format" => "dd-mm-yyyy"}
+                = f.text_field :date_start, 'data-behaviour' => 'datepicker', :value=>@start_date.strftime('%d-%m-%Y'),:size => "16"
+                %span.add-on
+                  %i.icon-th
 
           .form-group
             = f.label :date_end, :class=>'col-sm-3 control-label'
             .col-sm-9
-              = f.text_field :date_end, 'data-behaviour' => 'datepicker'
+              .input-append.date.datepicker{"data-date" => "12-02-2012", "data-date-format" => "dd-mm-yyyy"}
+                = f.text_field :end_start, 'data-behaviour' => 'datepicker', :value=>@end_date.strftime('%d-%m-%Y'),:size => "16"
+                %span.add-on
+                  %i.icon-th
 
           .form-group
             .col-sm-10.col-sm-offset-2

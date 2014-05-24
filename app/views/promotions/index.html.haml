@@ -23,9 +23,11 @@
                 = link_to promo.description, edit_promotion_path(promo.id)
 
               %td.td
-                =promo.date_start
+                - if !promo.date_start.nil?
+                  =promo.date_start.strftime("%d-%m-%Y")
               %td.td
-                =promo.date_end
+                - if !promo.date_end.nil?
+                  =promo.date_end.strftime("%d-%m-%Y")
 
               %td.td
                 = link_to (image_tag 'delete.jpg', :size=>'20x20'), promo, method: :delete, data: { confirm: '¿Está seguro de borrar la promoción?' }

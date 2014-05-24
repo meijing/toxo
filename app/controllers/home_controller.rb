@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   def home
-    @products = Product.all
+    @products = Product.find(:all).sample(15)
   end
 
   def who_are

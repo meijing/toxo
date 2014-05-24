@@ -19,6 +19,8 @@ class PromotionsController < ApplicationController
 
   # GET /promotions/1/edit
   def edit
+    @start_date = Promotion.find(params[:id]).date_start
+    @end_date = Promotion.find(params[:id]).date_end
   end
 
   # POST /promotions
