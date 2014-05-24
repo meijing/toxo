@@ -1,6 +1,6 @@
 .flexslider
   %ul.slides
-    -Product.all.each do |product|
+    -@products.each do |product|
       %li
         = image_tag product.image
         .carousel-caption
