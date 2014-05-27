@@ -3,8 +3,11 @@
     -@products.each do |product|
       %li
         = image_tag product.image
+        .carousel-caption_sale
+          Rebajado
         .carousel-caption
           %h4
-            =product.name
+            %b
+              =product.name
           %p
             =product.description

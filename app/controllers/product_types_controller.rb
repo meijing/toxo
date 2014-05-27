@@ -99,6 +99,7 @@ class ProductTypesController < ApplicationController
     @relation.each do |rel|
       rel.sale = 1
       rel.save
+      Product.where('product_type_id = ? and category_id = ?', rel.product_type_id, rel.category_id).update_all(sale: 1)
     end
     redirect_to edit_product_type_path(@product_type_id)
   end
@@ -110,6 +111,7 @@ class ProductTypesController < ApplicationController
     @relation.each do |rel|
       rel.sale = 0
       rel.save
+      Product.where('product_type_id = ? and category_id = ?', rel.product_type_id, rel.category_id).update_all(sale: nil)
     end
     redirect_to edit_product_type_path(@product_type_id)
   end

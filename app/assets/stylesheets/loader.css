@@ -5562,18 +5562,26 @@ button.close {
   height: 12px;
   background-color: #ffffff;
 }
+.carousel-caption_sale {
+  
+  color: #ffffff;
+  text-align: center;
+  background: red;
+  
+}
+
 .carousel-caption {
   left: 15%;
   right: 15%;
   bottom: 20px;
   z-index: 10;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   color: #ffffff;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
-  background: #333333;
-  background: rgba(0, 0, 0, 0.75);
+  background: #772953;
+  
 }
 .carousel-caption .btn {
   text-shadow: none;
@@ -5581,6 +5589,7 @@ button.close {
 .carousel-caption h4,
 .carousel-caption p {
   color: #ffffff;
+  font-size: 15px;
 }
 @media screen and (min-width: 768px) {
   .carousel-control .glyphicon-chevron-left,
@@ -5591,12 +5600,12 @@ button.close {
     height: 30px;
     margin-top: -15px;
     margin-left: -15px;
-    font-size: 30px;
+    font-size: 20px;
   }
   .carousel-caption {
     left: 20%;
     right: 20%;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
   }
   .carousel-indicators {
     bottom: 20px;
