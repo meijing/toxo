@@ -43,3 +43,39 @@
 .color_outlet{
     color:white;
 }
+
+.font_toxo{
+    font-family: 'Gourdie Cursive';
+}
+
+.align_right{
+    text-align: right;
+}
+
+.text_promotion{
+    font-size: 60px;
+    color: red;
+    font-weight: bold;
+}
+
+.background_promotion_first{
+    background-image: url('oferta.png');
+}
+
+.background_promotion_last{
+    background-image: url('etiqueta_promocion.jpg');
+}
+
+.backgroun_promotion_common{
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    padding:37px;
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+}
+
+.background_menu_promotion{
+    background-color: red;
+}

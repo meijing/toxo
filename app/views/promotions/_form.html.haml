@@ -1,5 +1,5 @@
 .row
-  .col-sm-6
+  .col-sm-12
     .well.bs-component
       .form-horizontal
         = form_for @promotion do |f|
@@ -28,6 +28,55 @@
                 = f.text_field :date_end, 'data-behaviour' => 'datepicker', :value=>(@date_end.nil?)?'':@date_end.strftime('%d-%m-%Y'),:size => "16"
                 %span.add-on
                   %i.icon-th
+
+          .form-group
+            = f.label :text, :class=>'col-sm-3 control-label'
+            .col-sm-9
+              = f.text_field :text, :class=>'form-control', :rows=>'7'
+
+          .form-group
+            = f.label :catalog, :class=>'col-sm-3 control-label'
+            .col-sm-9
+              = f.text_field :catalog, :class=>'form-control', :rows=>'7'
+
+          .col-sm-12
+            .col-sm-4
+              .panel.panel-success
+                .panel-heading
+                  %h3.panel-title
+                    = f.radio_button(:style, 1)
+                .panel-body
+                  %h3
+                    Descripción de la promoción
+                  .row
+                    %center
+                      = image_tag 'oferta.png'
+
+
+            .col-sm-4
+              .panel.panel-danger
+                .panel-heading
+                  %h3.panel-title
+                    = f.radio_button(:style, 2)
+                .panel-body
+                  %center
+                    .text_promotion
+                      45
+                      = image_tag 'porcentage.png'
+                  %h3
+                    Descripción de la promoción
+
+            .col-sm-4
+              .panel.panel-info
+                .panel-heading
+                  %h3.panel-title
+                    = f.radio_button(:style, 3)
+                .panel-body
+                  %h3
+                    Descripción de la promoción
+                  .row.align_right
+                    = image_tag 'etiqueta_promocion.jpg'
+
 
           .form-group
             .col-sm-10.col-sm-offset-2

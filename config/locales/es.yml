@@ -19,6 +19,8 @@ es:
         description: Descripción
         date_start: Empieza en
         date_end: Acaba en
+        text: Texto de la imagen
+        catalog: Nombre del catálogo de productos
     errors:
       title: Se han producido errores
       models:

@@ -1,0 +1,50 @@
+.container
+  =render 'header'
+    
+  = render 'menu'
+
+  .well
+    .bs-component
+      .row
+        .col-sm-12
+          - @promotions.in_groups_of(3).each do |group_promo|
+            .row
+              -group_promo.each do |promo|
+                .col-sm-4
+                  -if !promo.nil? && promo.style == 1
+                    .panel.panel-success
+                      .panel-heading
+                        %h3.panel-title
+
+                      .panel-body
+                        %h3
+                          = promo.description
+                        .row
+                          .backgroun_promotion_common.background_promotion_first
+                            = promo.text
+
+                  -elsif !promo.nil? && promo.style == 2
+                    .panel.panel-danger
+                      .panel-heading
+                        %h3.panel-title
+                    
+                      .panel-body
+                        %center
+                          .text_promotion
+                            = promo.text
+                            = image_tag 'porcentage.png'
+                        %h3
+                          = promo.description
+
+                  -elsif !promo.nil? && promo.style == 3
+                    .panel.panel-info
+                      .panel-heading
+                        %h3.panel-title
+
+                      .panel-body
+                        %h3
+                          =promo.description
+                        .row.backgroun_promotion_common.background_promotion_last
+                          = promo.text
+
+  = render 'pe'
