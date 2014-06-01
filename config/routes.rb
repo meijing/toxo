@@ -24,6 +24,7 @@ Toxo::Application.routes.draw do
   match 'our_marks' => 'home#our_marks', :as =>'our_marks', :via =>:get
   match 'all_products' => 'home#all_products', :as =>'all_products', :via =>:get
   match 'all_promotions' => 'home#promotions', :as =>'all_promotions', :via =>:get
+  match 'show_promotion' => 'home#show_promotion', :as =>'show_promotion', :via =>:get
 
   match 'up' => 'marks#up', :as =>'up_mark', :via =>:get
   match 'down' => 'marks#down', :as =>'down_mark', :via =>:get

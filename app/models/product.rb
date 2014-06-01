@@ -3,6 +3,11 @@ class Product < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
   belongs_to :mark
 
+  scope :is_promotion, lambda {|promo_catalog|
+    promo_catalog = '%'+promo_catalog+'%'
+    where('name like ?', promo_catalog)
+  }
+
   def self.exists_products_outlet
     if Product.where('outlet =1').length > 0
       return true

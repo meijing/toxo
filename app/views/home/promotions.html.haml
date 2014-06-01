@@ -18,10 +18,10 @@
 
                       .panel-body
                         %h3
-                          = promo.description
+                          = link_to promo.description, show_promotion_path(:promo_catalog => promo.catalog)
                         .row
                           .backgroun_promotion_common.background_promotion_first
-                            = promo.text
+                            =link_to promo.text, show_promotion_path(:promo_catalog => promo.catalog)
 
                   -elsif !promo.nil? && promo.style == 2
                     .panel.panel-danger
@@ -31,10 +31,12 @@
                       .panel-body
                         %center
                           .text_promotion
-                            = promo.text
-                            = image_tag 'porcentage.png'
+                            = link_to show_promotion_path(:promo_catalog => promo.catalog) do
+                              = promo.text
+                              = image_tag 'porcentage.png'
                         %h3
-                          = promo.description
+
+                          = link_to promo.description, show_promotion_path(:promo_catalog => promo.catalog)
 
                   -elsif !promo.nil? && promo.style == 3
                     .panel.panel-info
@@ -43,8 +45,8 @@
 
                       .panel-body
                         %h3
-                          =promo.description
+                          =link_to promo.description, show_promotion_path(:promo_catalog => promo.catalog)
                         .row.backgroun_promotion_common.background_promotion_last
-                          = promo.text
+                          = link_to promo.text, show_promotion_path(:promo_catalog => promo.catalog)
 
   = render 'pe'

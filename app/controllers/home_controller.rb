@@ -20,6 +20,13 @@ class HomeController < ApplicationController
     @promotions = Promotion.is_active
   end
 
+  def show_promotion
+    @promo_catalog = params[:promo_catalog]
+    @products = Product.is_promotion(@promo_catalog)
+
+    @promotions = Promotion.is_active
+  end
+
   def products
 
     if !params[:mark_id].nil? and !params[:category_id].nil?
