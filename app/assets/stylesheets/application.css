@@ -46,7 +46,7 @@
 
 .font_toxo{
     font-family: 'gourdie_cursiveregular';
-    font-size: 90px;
+    font-size: 80px;
 }
 
 .align_right{
@@ -83,11 +83,11 @@
 
 @font-face {
     font-family: 'gourdie_cursiveregular';
-    src: url('fonts/gcursive-webfont.eot');
-    src: url('fonts/gcursive-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/gcursive-webfont.woff') format('woff'),
-         url('fonts/gcursive-webfont.ttf') format('truetype'),
-         url('fonts/gcursive-webfont.svg#gourdie_cursiveregular') format('svg');
+    src: asset-url('gcursive-webfont.eot');
+    src: asset-url('gcursive-webfont.eot?#iefix') format('embedded-opentype'),
+         asset-url('gcursive-webfont.woff') format('woff'),
+         asset-url('gcursive-webfont.ttf') format('truetype'),
+         asset-url('gcursive-webfont.svg#gourdie_cursiveregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
