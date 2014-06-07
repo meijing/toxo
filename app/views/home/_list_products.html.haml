@@ -9,5 +9,5 @@
       = link_to cat.name, productos_path(:mark_id=>get_mark_id(@mark), :category_id=>cat.id), :class =>' btn btn-info'
       .panel
         -find_product_types(@mark,cat, @product_type).each do |pt|
-          = link_to pt.name, productos_path(:mark_id=>get_mark_id(@mark), :product_type_id=>pt.id), :class=>'btn btn-link'
+          = link_to pt.name, productos_path(:mark_id=>get_mark_id(@mark), :product_type_id=>pt.id, :category_id=>cat.id), :class=>'btn btn-link'
     %br

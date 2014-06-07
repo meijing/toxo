@@ -48,6 +48,7 @@ class MarksController < ApplicationController
   # POST /marks.json
   def create
     @mark = Mark.new(mark_params)
+    
     @mark.priority = Mark.count+1
     respond_to do |format|
       if @mark.save

@@ -25,8 +25,8 @@
               = f.file_field :image
           - if !@mark.image.nil?
             .form-group
-              =image_tag @mark.image.url(:medium)
-
+              =image_tag @mark.image
+              =@mark.image_file_size
           .form-group
             .col-sm-2.control-label
               %b

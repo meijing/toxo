@@ -5564,9 +5564,9 @@ button.close {
 }
 .carousel-caption_sale {
   
-  color: #ffffff;
   text-align: center;
-  background: red;
+  background-color: #f4dfe4;
+  color: #772953;
   
 }
 
