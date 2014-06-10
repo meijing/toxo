@@ -39,7 +39,7 @@ module HomeHelper
     else
       @product_type_id = nil
     end
-    ProductType.find_product_types(@mark_id, @category_id)
+    ProductType.find_product_types(@mark_id, @category_id, @product_type_id)
   end
 
   def get_mark_id mark

@@ -18,4 +18,8 @@ module ProductTypesHelper
     return false
   end
 
+  def find_product_types_with_products category_id
+    ProductType.joins('join products on products.product_type_id = product_types.id').where('products.category_id = ?',category_id.to_i).uniq.order(:name)
+  end
+
 end

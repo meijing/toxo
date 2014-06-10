@@ -6,7 +6,7 @@
       .well
         %p
           = link_to 'Crear promoción', new_promotion_path, :class=>'btn btn-primary'
-
+          = link_to 'Volver al índice', administracion_path, :class=>'btn btn-danger'
         %table.table.table-striped.table-hover
           %tr.info
             %th.th
@@ -36,4 +36,4 @@
           .alert.alert-dismissable.alert-danger
             %p No se han encontrado promociones
 
-        = link_to 'Volver al índice', administracion_path, :class=>'btn btn-danger'
+        
