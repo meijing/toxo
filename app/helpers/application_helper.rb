@@ -19,7 +19,7 @@ module ApplicationHelper
   end
 
   def marcas_posicion_par
-    Mark.all.order(:priority).where('(priority%2)=0 and (hidden is null or hidden = 0) and priority<10')
+    Mark.all.order(:priority).where('(priority%2)=0 and (hidden is null or hidden = 0) and priority<=20')
   end
 
   def marcas_posicion_impar
