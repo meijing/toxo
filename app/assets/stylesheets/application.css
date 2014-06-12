@@ -59,6 +59,12 @@
     font-weight: bold;
 }
 
+.text_promotion{
+    font-size: 60px;
+    color: #ec0100;
+    font-weight: bold;
+}
+
 .background_promotion_first{
     background-image: url('oferta.png');
 }
@@ -81,6 +87,9 @@
     background-color: #dd4814;
 }
 
+.background_menu_promotion_rebajado_proba{
+    background-color: #3e152b;
+}
 
 @font-face {
     font-family: 'gourdie_cursiveregular';

@@ -21,6 +21,10 @@ es:
         date_end: Acaba en
         text: Texto de la imagen
         catalog: Nombre del catálogo de productos
+        end_stocks: Hasta finalizar existencias
+        mark_id: Marca
+        product_type_id: Tipo de producto
+        category_type_id: Categoría
     errors:
       title: Se han producido errores
       models:
