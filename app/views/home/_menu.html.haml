@@ -5,7 +5,7 @@
         .navbar.navbar-inverse
           .navbar-collapse.collapse.navbar-inverse-collapse
             %ul.nav.navbar-nav
-              %li.background_menu_promotion_rebajado_proba
+              %li
                 = link_to 'Quienes somos', who_are_path
 
               %li
@@ -13,14 +13,15 @@
 
               %li
                 = link_to 'Productos', all_products_path
-                  
-              - if Product.exists_products_outlet
-                %li
-                  = link_to 'Outlet', outlet_path
 
               - if !Promotion.is_active.nil? && !Promotion.is_active.empty?
                 %li.background_menu_promotion_rebajado
                   = link_to 'Promociones', all_promotions_path
+
+              - if Product.exists_products_outlet
+                %li
+                  = link_to 'Outlet', outlet_path
+
 
               %li
                 = link_to 'Contacto', contacto_path
