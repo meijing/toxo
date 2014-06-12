@@ -33,7 +33,7 @@ class HomeController < ApplicationController
       @mark = Mark.find(params[:mark_id])
       @product_type = ProductType.find(params[:product_type_id])
       @category = Category.find(params[:category_id])
-      @products = Product.where('mark_id = ? and product_type_id = ? and mark_id=?', @mark.id, @product_type.id, @category.id)
+      @products = Product.where('mark_id = ? and product_type_id = ? and category_id=?', @mark.id, @product_type.id, @category.id)
     end
     
     if !params[:mark_id].nil? and !params[:category_id].nil?
