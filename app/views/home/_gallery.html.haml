@@ -3,7 +3,7 @@
     -if !@products.nil?
       -@products.each do |product|
         %li
-          = image_tag product.image
+          = image_tag product.image(:original)
           - if product.sale == 1
             .carousel-caption_sale
               Rebajado
