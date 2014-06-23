@@ -21,9 +21,12 @@ class Product < ActiveRecord::Base
 
   def check_is_for_sale
     if !product_type_id.nil?
-      @product_type = ProductType.find(product_type_id)
-      if !@product_type.nil? and @product_type.sale = 1
-        self.sale = 1
+      @category_product_type = CategoryProductType.where('product_type_id = ? and category_id = ?', product_type_id, category_id )
+      @category_product_type.each do |cpt|
+        @product_type = ProductType.find(cpt.product_type_id)
+        if !@product_type.nil? and @product_type.sale = 1
+          self.sale = 1
+        end
       end
     end
   end
