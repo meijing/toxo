@@ -3,9 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .background_promotion_first{
-    background: url('oferta.png');
+    background: image-url('oferta.png');
 }
 
 .background_promotion_last{
-    background: url('etiqueta_promocion.jpg');
+    background: asset-url('etiqueta_promocion.jpg');
 }
