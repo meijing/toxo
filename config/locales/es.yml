@@ -25,6 +25,7 @@ es:
         mark_id: Marca
         product_type_id: Tipo de producto
         category_type_id: Categoría
+        style: Estilo
     errors:
       title: Se han producido errores
       models:
@@ -44,6 +45,20 @@ es:
           attributes:
             name:
               blank: "- No puede quedar en blanco"
+        promotion:
+          attributes:
+            date_start:
+              blank: "- No puede quedar en blanco"
+            description:
+              blank: "- No puede quedar en blanco"
+            text:
+              blank: "- No puede quedar en blanco"
+            end_stocks:
+              blank: "- Hay que indicar si es hasta final de existencias o si tiene fecha límite"
+            date_end:
+              blank: "- Hay que indicar si es hasta final de existencias o si tiene fecha límite"
+            style:
+              blank: "- No puede quedar en blanco. Escoge alguno de los diseños"
 
   categories:
     data: Datos

@@ -29,7 +29,7 @@
                       =check_box_tag "product_types[categories][]", acat.id, false
                     =acat.name
 
-                    -if @categories_associated.include?(acat)
+                    -if !@categories_associated.nil? and @categories_associated.include?(acat)
                       -if is_for_sale(@product_type.id, acat.id)
                         .span.label.label-success Está rebajado
                         =link_to 'Eliminar rebaja', delete_sale_path(:product_type_id=>@product_type.id, :category_id=>acat.id), :class=>'label label-danger'

@@ -25,7 +25,6 @@
             = f.label :date_end, :class=>'col-sm-3 control-label'
             .col-sm-9
               .col-sm-6
-                
                 .input-append.date.datepicker{"data-date" => "12-02-2012", "data-date-format" => "dd-mm-yyyy"}
                   = f.text_field :date_end, 'data-behaviour' => 'datepicker', :value=>(@date_end.nil?)?'':@date_end.strftime('%d-%m-%Y'),:size => "16"
                   %span.add-on
