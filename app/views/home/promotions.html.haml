@@ -18,7 +18,7 @@
 
                       .panel-body
                         %h3
-                          = link_to promo.description, show_promotion_path(:promo_catalog => promo.catalog)
+                          = link_to promo.description, show_promotion_path(:id => promo.id)
                         .row
                           .backgroun_promotion_common.background_promotion_first
                             =promo.text
@@ -34,8 +34,7 @@
                             = promo.text
                             = image_tag 'porcentage.png'
                         %h3
-
-                          = link_to promo.description, show_promotion_path(:promo_catalog => promo.catalog)
+                          = link_to promo.description, show_promotion_path(:id => promo.id)
 
                   -elsif !promo.nil? && promo.style == 3
                     .panel.panel-info
@@ -44,7 +43,7 @@
 
                       .panel-body
                         %h3
-                          =link_to promo.description, show_promotion_path(:promo_catalog => promo.catalog)
+                          =link_to promo.description, show_promotion_path(:id => promo.id)
                         .row.backgroun_promotion_common.background_promotion_last
                           = promo.text
 

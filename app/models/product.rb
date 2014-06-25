@@ -3,9 +3,15 @@ class Product < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
   belongs_to :mark
 
-  scope :is_promotion, lambda {|promo_catalog|
-    promo_catalog = '%'+promo_catalog+'%'
-    where('name like ?', promo_catalog)
+  scope :is_promotion, lambda {|id|
+    @promo = Promotion.find(id)
+    if !@promo.nil? and @promo.catalog != ''
+      where('name like ?', '%'.concat(@promo.catalog).concat('%'))
+    elsif !@promo.nil? and !@promo.mark_id.nil?
+      where('mark_id = ?', @promo.mark_id)
+    elsif !@promo.nil? and !@promo.product_type_id.nil? and !@promo.category_type_id.nil?
+      where('product_type_id = ? and category_id = ?', @promo.product_type_id, @promo.category_type_id)
+    end
   }
 
   def self.exists_products_outlet

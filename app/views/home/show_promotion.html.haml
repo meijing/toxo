@@ -11,7 +11,7 @@
           - @promotions.each do |promo|
             .row
               .btn-xs.panel_products_custom
-                %h4= link_to promo.description, show_promotion_path(:promo_catalog => promo.catalog), :class => 'color_outlet'
+                %h4= link_to promo.description, show_promotion_path(:id => promo.id), :class => 'color_outlet'
               %br
         .col-sm-9
           = render 'gallery'

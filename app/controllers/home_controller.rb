@@ -21,8 +21,14 @@ class HomeController < ApplicationController
   end
 
   def show_promotion
-    @promo_catalog = params[:promo_catalog]
-    @products = Product.is_promotion(@promo_catalog)
+    @promo = Promotion.find(params[:id])
+    #if !@promo.nil? and @promo.catalog != ''
+      @products = Product.is_promotion(@promo.id)
+    #elsif !@promo.nil? and !@promo.mark_id.nil?
+    #  @products = Product.where('mark_id = ?', @promo.mark_id)
+    #elsif !@promo.nil? and !@promo.product_type_id.nil? and !@promo.category_type_id
+    #  @products = Product.where('product_type_id = ? and category_id = ?', @promo.product_type_id, @promo.category_type_id)
+    #end
 
     @promotions = Promotion.is_active
   end
