@@ -15,7 +15,8 @@
  *= require bootstrap-datepicker
  *= require jquery.rambling.slider
  */
-@import url(http://fonts.googleapis.com/css?family=Calligraffitti);
+@import url(http://fonts.googleapis.com/css?family=Lovers+Quarrel|Parisienne|Petit+Formal+Script|Allura|Mr+De+Haviland|Grand+Hotel|Mrs+Saint+Delafield|Dynalight|Great+Vibes|Clicker+Script|Rochester|Sacramento|Dancing+Script|Playball|Pinyon+Script|Damion|Cookie|Italianno|Herr+Von+Muellerhoff|Calligraffitti);
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
 @import "united/base";
 .checkbox_container {
   display: inline-block;
@@ -80,8 +81,93 @@
 }
 
 .font_who_are{
-    font-family: 'URW Chancery L';
+    font-family: 'Rochester';
+    font-size: 25px;
+}
+
+.font_who_are2{
+    font-family: 'Parisienne';
+    font-size: 25px;
+}
+
+.font_who_are3{
+    font-family: 'Sacramento';
+    font-size: 35px;
+}
+
+.font_who_are4{
+    font-family: 'Lovers Quarrel';
+    font-size: 35px;
+}
+
+.font_who_are5{
+    font-family: 'Petit Formal Script';
     font-size: 20px;
+}
+
+.font_who_are6{
+    font-family: 'Allura';
+    font-size: 35px;
+}
+
+.font_who_are7{
+    font-family: 'Mr De Haviland';
+    font-size: 35px;
+}
+
+.font_who_are8{
+    font-family: 'Grand Hotel';
+    font-size: 25px;
+}
+
+.font_who_are9{
+    font-family: 'Mrs Saint Delafield';
+    font-size: 35px;
+}
+
+.font_who_are10{
+    font-family: 'Dynalight';
+    font-size: 35px;
+}
+
+.font_who_are11{
+    font-family: 'Great Vibes';
+    font-size: 35px;
+}
+
+.font_who_are12{
+    font-family: 'Clicker Script';
+    font-size: 35px;
+}
+
+.font_who_are13{
+    font-family: 'Dancing Script';
+    font-size: 30px;
+}
+
+.font_who_are14{
+    font-family: 'Playball';
+    font-size: 25px;
+}
+
+.font_who_are15{
+    font-family: 'Pinyon Script';
+    font-size: 25px;
+}
+
+.font_who_are16{
+    font-family: 'Damion';
+    font-size: 25px;
+}
+
+.font_who_are17{
+    font-family: 'Cookie';
+    font-size: 25px;
+}
+
+.font_who_are18{
+    font-family: 'Italianno';
+    font-size: 35px;
 }
 
 .center_text_promotion{
