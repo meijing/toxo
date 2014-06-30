@@ -1,10 +1,9 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@font-face {
-    font-family: 'gourdie_cursiveregular';
-    src: url(asset-path('gcursive-webfont.eot') + "?#iefix") format('embedded-opentype'),
-         url(asset-path('gcursive-webfont.woff')) format('woff'),
-         url(asset-path('gcursive-webfont.ttf'))  format('truetype'),
-         url(asset-path('gcursive-webfont.svg') + "#gourdie_cursiveregular") format('svg');
-}
+
+@font-face{ font-family: 'gourdie_cursiveregular';
+src: asset-url('gcursive-webfont.eot');
+src: asset-url('gcursive-webfont.eot?#iefix') format('embedded-opentype'),
+asset-url('gcursive-webfont.svg') format('svg'),
+asset-url('gcursive-webfont.woff') format('woff'); }
