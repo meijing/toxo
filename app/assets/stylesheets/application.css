@@ -15,7 +15,7 @@
  *= require bootstrap-datepicker
  *= require jquery.rambling.slider
  */
-
+@import url(http://fonts.googleapis.com/css?family=Calligraffitti);
 @import "united/base";
 .checkbox_container {
   display: inline-block;
@@ -45,7 +45,7 @@
 }
 
 .font_toxo{
-    font-family: 'gourdie_cursiveregular';
+    font-family: 'Calligraffitti', cursive;
     font-size: 80px;
 }
 
