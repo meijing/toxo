@@ -79,18 +79,6 @@
     background-color: #3e152b;
 }
 
-@font-face {
-    font-family: 'gourdie_cursiveregular';
-    src: url('/assets/gcursive-webfont.eot');
-    src:url('/assets/gcursive-webfont.eot?#iefix') format('embedded-opentype'),
-        url('/assets/gcursive-webfont.woff') format('woff'),
-        url('/assets/gcursive-webfont.ttf') format('truetype'),
-        url('/assets/gcursive-webfont.svg#gourdie_cursiveregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
 .font_who_are{
     font-family: 'URW Chancery L';
     font-size: 20px;
