@@ -66,5 +66,3 @@ gem 'bootstrap-datepicker-rails'
 gem 'aws-sdk'
 
 gem 'rambling-slider-rails'
-
-gem 'rmagick'

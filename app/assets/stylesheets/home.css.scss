@@ -3,8 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @font-face {
     font-family: 'gourdie_cursiveregular';
-    src: url(font-path('gcursive-webfont.eot') + "?#iefix") format('embedded-opentype'),
-         url(font-path('gcursive-webfont.woff')) format('woff'),
-         url(font-path('gcursive-webfont.ttf'))  format('truetype'),
-         url(font-path('gcursive-webfont.svg') + "#gourdie_cursiveregular") format('svg');
+    src: url(asset-path('gcursive-webfont.eot') + "?#iefix") format('embedded-opentype'),
+         url(asset-path('gcursive-webfont.woff')) format('woff'),
+         url(asset-path('gcursive-webfont.ttf'))  format('truetype'),
+         url(asset-path('gcursive-webfont.svg') + "#gourdie_cursiveregular") format('svg');
 }
