@@ -23,7 +23,8 @@
       .well
         -marcas_posicion_par.each do |mark|
           = link_to productos_path(:mark_id => mark.id) do
-            =image_tag mark.image.url(:original)
+            %center
+              =image_tag mark.image.url(:original)
             %br
             %br
 
