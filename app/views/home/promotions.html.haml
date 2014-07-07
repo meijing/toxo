@@ -20,7 +20,7 @@
                         %h3
                           = link_to promo.description, show_promotion_path(:id => promo.id)
                         .row
-                          .backgroun_promotion_common.background_promotion_first
+                          .backgroun_promotion_common.background_promotion_first{:style => "background-image: url(check.png)"}
                             =promo.text
 
                   -elsif !promo.nil? && promo.style == 2
