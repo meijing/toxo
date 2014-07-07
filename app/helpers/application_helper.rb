@@ -19,11 +19,15 @@ module ApplicationHelper
   end
 
   def marcas_posicion_par
-    Mark.all.order(:priority).where('(priority%2)=0 and (hidden is null or hidden = 0) and priority<=20')
+    @num_marks_hidden = Mark.where('(priority%2)=0 and (hidden is null or hidden = 0)').count
+    @num_marks_to_show = (7+1)*2
+    Mark.all.order(:priority).where('(priority%2)=0 and (hidden is null or hidden = 0) and priority<=?',@num_marks_to_show)
   end
 
   def marcas_posicion_impar
-    Mark.all.order(:priority).where('(priority%2)!=0 and (hidden is null or hidden = 0) and priority<20')
+    @num_marks_hidden = Mark.where('(priority%2)!=0 and (hidden is null or hidden = 0)').count
+    @num_marks_to_show = (7+1)*2
+    Mark.all.order(:priority).where('(priority%2)!=0 and (hidden is null or hidden = 0) and priority<?', @num_marks_to_show)
   end
   
 end
