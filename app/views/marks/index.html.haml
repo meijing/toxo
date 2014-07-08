@@ -5,8 +5,10 @@
     .bs-component
       .well
         %p
-          = link_to 'Crear una marca', new_mark_path(:product_type_id=>@product_type_id), :class=>'btn btn-primary'
-          = link_to 'Volver al índice', administracion_path, :class=>'btn btn-danger'
+          .col-sm-6
+            = link_to 'Crear una marca', new_mark_path(:product_type_id=>@product_type_id), :class=>'btn btn-primary'
+          .col-sm-6
+            = link_to 'Volver al índice', administracion_path, :class=>'btn btn-danger'
         %table.table.table-striped.table-hover
           %tr.info
             %th.th
