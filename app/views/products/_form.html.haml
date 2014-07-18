@@ -37,10 +37,11 @@
             .col-sm-9
               = f.collection_select :category_id, Category.all.order(:name), :id, :name, :class=>'form-control',:prompt => ''
 
-          .form-group
-            = f.label :product_type_id, :class=>'col-sm-2 control-label'
-            .col-sm-9
-              = f.collection_select :product_type_id, ProductType.all.order(:name), :id, :name, :class=>'form-control',:prompt => ''
+          - if !@product_types_found.nil?
+            .form-group
+              = f.label :product_type_id, :class=>'col-sm-2 control-label'
+              .col-sm-9
+                = f.collection_select :product_type_id, @product_types_found, :id, :name,:prompt => '',:class=>'form-control'
 
           .form-group
             = f.label :mark_id, :class=>'col-sm-2 control-label'

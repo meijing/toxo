@@ -19,14 +19,14 @@ module ApplicationHelper
   end
 
   def marcas_posicion_par
-    @num_marks_hidden = Mark.where('(priority%2)=0 and (hidden =1) and priority<=14').count
-    @num_marks_to_show = (7+@num_marks_hidden)*2
+    @num_marks_hidden = Mark.where('(priority%2)=0 and (hidden =1) and priority<=12').count
+    @num_marks_to_show = (6+@num_marks_hidden)*2
     Mark.all.order(:priority).where('(priority%2)=0 and (hidden is null or hidden = 0) and priority<=?',@num_marks_to_show)
   end
 
   def marcas_posicion_impar
-    @num_marks_hidden = Mark.where('(priority%2)!=0 and (hidden = 1) and priority<14').count
-    @num_marks_to_show = (7+@num_marks_hidden)*2
+    @num_marks_hidden = Mark.where('(priority%2)!=0 and (hidden = 1) and priority<12').count
+    @num_marks_to_show = (6+@num_marks_hidden)*2
     Mark.all.order(:priority).where('(priority%2)!=0 and (hidden is null or hidden = 0) and priority<?', @num_marks_to_show)
   end
   
