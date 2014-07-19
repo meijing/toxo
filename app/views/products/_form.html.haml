@@ -40,7 +40,7 @@
           .form-group
             = f.label :product_type_id, :class=>'col-sm-2 control-label'
             .col-sm-9
-              = f.collection_select :product_type_id, @product_types_found, :id, :name,:prompt => '',:class=>'form-control'
+              = f.collection_select :product_type_id, ProductType.all.order(:name), :id, :name,:prompt => '',:class=>'form-control'
 
           .form-group
             = f.label :mark_id, :class=>'col-sm-2 control-label'
