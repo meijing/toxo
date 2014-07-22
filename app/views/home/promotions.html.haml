@@ -22,6 +22,8 @@
                         .row
                           .backgroun_promotion_common.background_promotion_first{:style => "background-image: url(check.png)"}
                             =promo.text
+                        %h5= print_dates promo
+                          
 
                   -elsif !promo.nil? && promo.style == 2
                     .panel.panel-danger
@@ -36,6 +38,8 @@
                         %h3
                           = link_to promo.description, show_promotion_path(:id => promo.id)
 
+                        %h5= print_dates promo
+
                   -elsif !promo.nil? && promo.style == 3
                     .panel.panel-info
                       .panel-heading
@@ -46,5 +50,5 @@
                           =link_to promo.description, show_promotion_path(:id => promo.id)
                         .row.backgroun_promotion_common.background_promotion_last
                           = promo.text
-
+                        %h5= print_dates promo
   = render 'pe'

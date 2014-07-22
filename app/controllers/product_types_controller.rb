@@ -64,9 +64,10 @@ class ProductTypesController < ApplicationController
         if params[:product_types].nil?
           destroy_relations_with_categories @product_type.id
         else
+          @categories_saved = CategoryProductType.get_relations @product_type.id
           destroy_relations_with_categories @product_type.id
           @categories = params[:product_types][:categories]
-          save_relation_with_categories @categories
+          save_relation_with_categories(@categories, @categories_saved)
         end
 
         @category_id = session[:category_id]
@@ -127,7 +128,7 @@ class ProductTypesController < ApplicationController
       params.require(:product_type).permit(:name)
     end
 
-    def save_relation_with_categories categories
+    def save_relation_with_categories(categories, categories_old)
       if !categories.nil? && categories.length >0
         categories.each do |cat|
           if cat != ""
@@ -136,6 +137,14 @@ class ProductTypesController < ApplicationController
               @new_cpt = CategoryProductType.new
               @new_cpt.category_id = cat
               @new_cpt.product_type_id = @product_type.id
+              if !categories_old.nil?
+                categories_old.each do |co|
+                  if co.category_id == @new_cpt.category_id &&
+                      co.product_type_id == @new_cpt.product_type_id
+                    @new_cpt.sale = 1
+                  end
+                end
+              end
               @new_cpt.save
             end
           end
