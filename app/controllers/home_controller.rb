@@ -26,7 +26,7 @@ class HomeController < ApplicationController
 
     @promotions = Promotion.is_active.limit(10)
   end
-
+  
   def products
 
     if !params[:mark_id].nil? and !params[:product_type_id].nil? and !params[:category_id].nil?
