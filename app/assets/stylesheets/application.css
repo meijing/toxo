@@ -1,0 +1,92 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require loader
+ *= require united/bootswatch
+ *= require flexslider.css
+ *= require bootstrap-datepicker
+ *= require jquery.rambling.slider
+ */
+@import url(http://fonts.googleapis.com/css?family=Lovers+Quarrel|Parisienne|Petit+Formal+Script|Allura|Mr+De+Haviland|Grand+Hotel|Mrs+Saint+Delafield|Dynalight|Great+Vibes|Clicker+Script|Rochester|Sacramento|Dancing+Script|Playball|Pinyon+Script|Damion|Cookie|Italianno|Herr+Von+Muellerhoff|Calligraffitti);
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import "united/base";
+.checkbox_container {
+  display: inline-block;
+  vertical-align: -1px;
+  margin: 5px;
+  color:green;
+ }
+.checkbox_container input {
+  display: inline;
+ }
+.checkbox_container .collection_check_boxes{
+  display: inline;
+  vertical-align: -5px;
+ }
+
+ .proba{
+     background-color: #f4dfe4;
+}
+
+.color_fondo_pe{
+     background-color: #772953;
+
+}
+
+.color_outlet{
+    color:white;
+}
+
+.font_toxo{
+    font-family: 'Calligraffitti', cursive;
+    font-size: 80px;
+}
+
+.align_right{
+    text-align: right;
+}
+
+.text_promotion{
+    font-size: 60px;
+    color: #ec0100;
+    font-weight: bold;
+}
+
+.text_promotion{
+    font-size: 60px;
+    color: #ec0100;
+    font-weight: bold;
+}
+
+.backgroun_promotion_common{
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    padding:37px;
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+}
+
+.background_menu_promotion_rebajado{
+    background-color: #3e152b;
+}
+
+.font_who_are{
+    font-family: 'Parisienne';
+    font-size: 25px;
+    text-align: justify;
+}
+
+
+.center_text_promotion{
+    text-align: center;
+}
