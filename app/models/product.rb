@@ -6,7 +6,7 @@ class Product < ActiveRecord::Base
   scope :is_promotion, lambda {|id|
     @promo = Promotion.find(id)
     if !@promo.nil? and @promo.catalog != ''
-      where('btrim(upper(name),?) = ?', ' ', @promo.catalog.upcase.delete(' '))
+      where('btrim(upper(name),?) = ?', ' ',@promo.catalog.upcase.delete(' '))
     elsif !@promo.nil? and !@promo.mark_id.nil?
       where('mark_id = ?', @promo.mark_id)
     elsif !@promo.nil? and !@promo.product_type_id.nil? and !@promo.category_type_id.nil?
