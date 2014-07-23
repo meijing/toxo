@@ -22,7 +22,7 @@ class HomeController < ApplicationController
 
   def show_promotion
     @promo = Promotion.find(params[:id])
-    @products = Product.is_promotion(@promo.id)
+    @products = Product.where('(outlet is null or outlet = 0)').is_promotion(@promo.id)
 
     @promotions = Promotion.is_active.limit(10)
   end
