@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   def home
-    @products = Product.find(:all).sample(15)
+    @products = Product.where('(outlet is null or outlet = 0)').sample(15)
   end
 
   def who_are
