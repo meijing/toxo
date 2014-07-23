@@ -3,7 +3,7 @@ module ProductsHelper
   def show_product_in_promotion product
     Promotion.is_active.each do |promotion|
       if !promotion.catalog.nil? && promotion.catalog != '' &&
-          promotion.catalog == product.name
+          promotion.catalog.upcase == product.name.upcase
         return true
       end
 
