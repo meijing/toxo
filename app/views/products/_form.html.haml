@@ -25,6 +25,11 @@
               = f.check_box :outlet
 
           .form-group
+            = f.label :new_collection, :class=>'col-sm-2 control-label'
+            .col-sm-10
+              = f.check_box :new_collection
+
+          .form-group
             = f.label :image, :class=>'col-sm-2 control-label'
             .col-sm-9
               = f.file_field :image

@@ -16,11 +16,6 @@ module ProductsHelper
           !promotion.category_type_id.nil? &&
           promotion.product_type_id == product.product_type_id &&
           promotion.category_type_id == product.category_id
-        p '---------------------------'
-        p promotion.product_type_id
-        p  promotion.category_type_id
-        p product.product_type_id
-        p product.category_id
         return true
       end
     end

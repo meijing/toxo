@@ -15,6 +15,7 @@ es:
         category_id: Categoría
         product_type_id: Tipo de producto
         mark_id: Marca
+        new_collection: Nueva colección
       promotion:
         description: Descripción
         date_start: Empieza en

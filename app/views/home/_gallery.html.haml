@@ -4,7 +4,7 @@
       -@products.each do |product|
         %li
           = image_tag product.image(:original)
-          - if product.sale == 1
+          - if product.sale == 1 && product.new_collection != 1
             .carousel-caption_sale
               Rebajado
           - if show_product_in_promotion product
