@@ -7,6 +7,9 @@
           - if product.sale == 1
             .carousel-caption_sale
               Rebajado
+          - if show_product_in_promotion product
+            .carousel-caption_sale
+              En promoción
           .carousel-caption
             %h4
               %b
