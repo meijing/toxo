@@ -77,6 +77,14 @@ class PromotionsController < ApplicationController
     end
   end
 
+  def delete_old_promotion
+    @promotions_old = Promotion.is_old
+    @promotions_old.each do |po|
+      po.delete
+    end
+    redirect_to promotions_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_promotion

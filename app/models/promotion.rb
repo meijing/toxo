@@ -11,6 +11,10 @@ class Promotion < ActiveRecord::Base
     where('CURRENT_DATE >= date_start and (date_end >= CURRENT_DATE or end_stocks = 1)')
   }
 
+  scope :is_old, lambda {
+    where('CURRENT_DATE >= date_end')
+  }
+
   def presence_date_end?
     !date_start.nil? and end_stocks.nil?
   end

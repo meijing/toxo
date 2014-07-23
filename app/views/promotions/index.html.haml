@@ -5,9 +5,9 @@
     .bs-component
       .well
         %p
-          .col-sm-6
+          .col-sm-10
             = link_to 'Crear promoción', new_promotion_path, :class=>'btn btn-primary'
-          .col-sm-6
+          .col-sm-2
             = link_to 'Volver al índice', administracion_path, :class=>'btn btn-danger'
         %table.table.table-striped.table-hover
           %tr.info
@@ -38,4 +38,5 @@
           .alert.alert-dismissable.alert-danger
             %p No se han encontrado promociones
 
-        
+      .col-sm-12
+        = link_to 'Eliminar las caducadas', delete_old_promotion_path, :class=>'btn btn-danger', data: { confirm: '¿Está seguro de borrar todas las promociones caducadas?' }
