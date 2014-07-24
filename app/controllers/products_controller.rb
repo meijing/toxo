@@ -53,6 +53,8 @@ class ProductsController < ApplicationController
       @product.check_is_for_sale
     end
 
+    @product.name = @product.name.strip
+
     respond_to do |format|
       if @product.save
 
@@ -77,6 +79,8 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
+        @product.name = @product.name.strip
+        @product.save
         @category_id = session[:category_id]
         session[:category_id] = nil
         @product_type_id = session[:product_type_id]
