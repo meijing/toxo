@@ -2,7 +2,7 @@ module ProductsHelper
 
   def show_product_in_promotion product
     Promotion.is_active.each do |promotion|
-      if !promotion.catalog.nil? && promotion.catalog != '' && !product.name.nil? && !promotion.catalog.nil?
+      if !promotion.catalog.nil? && promotion.catalog != '' && !product.name.nil? && !promotion.catalog.nil? &&
           promotion.catalog.upcase.delete(' ') == product.name.upcase.delete(' ')
         return true
       end
