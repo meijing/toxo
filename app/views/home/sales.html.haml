@@ -1,0 +1,19 @@
+.container
+  =render 'header'
+    
+  = render 'menu'
+
+  .well
+    .bs-component
+      .row
+        .col-sm-3
+          -list_sales.each do |ls|
+            = link_to  ls[0].name, sales_path(:category_id => ls[0].id)
+            %ul
+              -ls[1].each do |p|
+                %li
+                  = link_to p.name, sales_path(:product_type_id =>p.id, :category_id => ls[0].id)
+        .col-sm-9
+          = render 'gallery'
+
+  = render 'pe'

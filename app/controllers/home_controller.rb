@@ -68,4 +68,15 @@ class HomeController < ApplicationController
   def outlet
     @products = Product.get_all_products_outlet
   end
+
+  def sales
+    @pt_id = params[:product_type_id]
+    @cat_id = params[:category_id]
+    if !@cat_id.nil?
+      @products = Product.where('sale = ? and (outlet is null or outlet = 0) and (? is null or product_type_id=?) and category_id = ?', 1, @pt_id, @pt_id, @cat_id)
+    else
+      @products = Product.where('sale = ? and (outlet is null or outlet = 0)', 1).sample(15)
+    end
+  end
+
 end

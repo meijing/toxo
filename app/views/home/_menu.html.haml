@@ -22,6 +22,9 @@
                 %li
                   = link_to 'Outlet', outlet_path
 
-
               %li
                 = link_to 'Contacto', contacto_path
+
+              - if CategoryProductType.exists_sales
+                %li
+                  = link_to '¡Rebajas!', sales_path
