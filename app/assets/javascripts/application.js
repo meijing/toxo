@@ -20,13 +20,14 @@
 //= require jquery.flexslider-min
 //= require bootstrap-datepicker
 //= require jquery.rambling.slider
+//= require easyzoom
 
 $(window).load(function() {
     $('.flexslider').flexslider()({
     animation: "slide",
     controlsContainer: '.flexslider',
-        selector: '.slides > div',
-        useCSS: false
+    selector: '.slides > div',
+    useCSS: false
   });
   });
 
