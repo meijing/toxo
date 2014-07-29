@@ -17,11 +17,15 @@
                         %h3.panel-title
 
                       .panel-body
+                        
                         %h3
                           = link_to promo.description, show_promotion_path(:id => promo.id)
                         .row
-                          .backgroun_promotion_common.background_promotion_first
-                            =promo.text
+                          .col-sm-8
+                            .backgroun_promotion_common.background_promotion_first
+                              =promo.text
+                          .col-sm-2
+                            =image_tag 'etiqueta_promo.png'
                         %h5= print_dates promo
                           
 
@@ -43,12 +47,12 @@
                   -elsif !promo.nil? && promo.style == 3
                     .panel.panel-info
                       .panel-heading
-                        %h3.panel-title
-
+                        
                       .panel-body
+                        %center
+                          =image_tag 'promociones.png'
                         %h3
                           =link_to promo.description, show_promotion_path(:id => promo.id)
-                        .row.backgroun_promotion_common.background_promotion_last
-                          = promo.text
+                        
                         %h5= print_dates promo
   = render 'pe'
