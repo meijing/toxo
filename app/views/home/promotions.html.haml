@@ -22,7 +22,7 @@
                           = link_to promo.description, show_promotion_path(:id => promo.id)
                         .row
                           .col-sm-8
-                            .backgroun_promotion_common.background_promotion_first
+                            .backgroun_promotion_common
                               =promo.text
                           .col-sm-2
                             =image_tag 'etiqueta_promo.png'
@@ -51,8 +51,13 @@
                       .panel-body
                         %center
                           =image_tag 'promociones.png'
-                        %h3
-                          =link_to promo.description, show_promotion_path(:id => promo.id)
+                        .row
+                          .col-sm-2
+                            .backgroun_promotion_common
+                              =promo.text
+                          .col-sm-10
+                            %h3
+                              =link_to promo.description, show_promotion_path(:id => promo.id)
                         
                         %h5= print_dates promo
   = render 'pe'
