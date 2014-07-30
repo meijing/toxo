@@ -112,6 +112,11 @@ class ProductsController < ApplicationController
     redirect_to products_path(:category_id => @category_id, :product_type_id => @product_type_id, :mark_id => @mark_id)
   end
 
+  def delete_new_collection
+    Product.update_all(:new_collection => nil)
+    redirect_to products_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product

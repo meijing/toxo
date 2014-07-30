@@ -5,9 +5,11 @@
     .bs-component
       .well
         %p
-          .col-sm-10
+          .col-sm-4
             = link_to 'Crear un producto', new_product_path(:category_id => @category_id, :product_type_id => @product_type_id, :mark_id => @mark_id), :class=>'btn btn-primary'
-          .col-sm-2
+          .col-sm-4
+            = link_to 'Eliminar productos de nueva colección', delete_new_collection_path(:category_id => @category_id, :product_type_id => @product_type_id, :mark_id => @mark_id), :class=>'btn btn-primary', data: { confirm: '¿Está seguro de eliminar todos los productos como nueva colección?' }
+          .col-sm-4
             = link_to 'Volver al índice', administracion_path, :class=>'btn btn-danger'
         %table.table.table-striped.table-hover
           %tr.info
