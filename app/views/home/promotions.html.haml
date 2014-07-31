@@ -51,11 +51,10 @@
                       .panel-body
                         %center
                           =image_tag 'promociones.png'
+                        .backgroun_promotion_common
+                          =promo.text
                         .row
-                          .col-sm-3
-                            .backgroun_promotion_common
-                              =promo.text
-                          .col-sm-9
+                          .col-sm-12
                             %h3
                               =link_to promo.description, show_promotion_path(:id => promo.id)
                         
