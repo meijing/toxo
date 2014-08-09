@@ -1,4 +1,5 @@
 class MarksController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_mark, only: [:show, :edit, :update, :destroy]
 
   # GET /marks

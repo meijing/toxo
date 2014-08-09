@@ -14,4 +14,12 @@ module PromotionsHelper
     end
     @text
   end
+
+  def get_text promo
+    @porcentage = ''
+    if promo.style == 2
+      @porcentage = '%'
+    end
+    promo.description.concat(' Dto. ').concat(promo.text).concat(@porcentage)
+  end
 end

@@ -17,8 +17,9 @@
                 .col-sm-12
                   .alert.alert-dismissable.alert-success
                     .row
-                      .col-sm-4
-                        =image_tag p.image.url(:medium)
+                      .col-sm-4.zoom
+                        =image_tag p.image.url(:medium), data: { 'zoom-image' => p.image.url}
+
                       .col-sm-8
                         %h4= p.name
                         %p

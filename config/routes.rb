@@ -1,4 +1,5 @@
 Toxo::Application.routes.draw do
+  devise_for :users
   resources :promotions
 
   resources :products

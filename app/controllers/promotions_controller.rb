@@ -1,5 +1,6 @@
 # encoding: utf-8
 class PromotionsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_promotion, only: [:show, :edit, :update, :destroy]
 
   # GET /promotions
