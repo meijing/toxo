@@ -42,7 +42,7 @@ class ProductTypesController < ApplicationController
       if @product_type.save
         if !@categories = params[:product_types].nil?
           @categories = params[:product_types][:categories]
-          save_relation_with_categories @categories
+          save_relation_with_categories(@categories, nil)
         end
 
         @category_id = session[:category_id]
@@ -66,8 +66,6 @@ class ProductTypesController < ApplicationController
           destroy_relations_with_categories @product_type.id
         else
           @categories_saved = CategoryProductType.get_relations @product_type.id
-          p '.-------------------'
-          p @categories_saved 
           destroy_relations_with_categories @product_type.id
           @categories = params[:product_types][:categories]
           save_relation_with_categories(@categories, @categories_saved)
