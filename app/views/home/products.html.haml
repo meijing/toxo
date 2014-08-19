@@ -9,6 +9,10 @@
         .col-sm-3
           = render 'list_products'
         .col-sm-9
+          -if !@product_type.nil? && @product_type != ''
+            Estás viendo 
+            %b
+              = ProductType.find(@product_type).name
           = render 'gallery'
 
   = render 'pe'
