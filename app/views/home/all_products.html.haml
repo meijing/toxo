@@ -1,7 +1,7 @@
 .container
-  =render 'header'
+  =render 'header_home'
 
-  = render 'menu'
+  
   .well
     -Category.all.order(:name).in_groups_of(3).each do |cat_group|
       .row

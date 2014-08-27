@@ -1,31 +1,12 @@
 .container
-  =render 'header'
-
-    
-  = render 'menu'
+  =render 'header_home'
 
   .row
-    .col-sm-2
-      .well
-        -marcas_posicion_impar.each do |mark|
-          = link_to productos_path(:mark_id => mark.id) do
-            %center
-              =image_tag mark.image.url(:original)
-            %br
-            %br
-        
-    .col-sm-8
-      %p Estos son algunos de nuestros productos, en la web podrás encontrar más.
-      =render 'gallery'
-
-
-    .col-sm-2
-      .well
-        -marcas_posicion_par.each do |mark|
-          = link_to productos_path(:mark_id => mark.id) do
-            %center
-              =image_tag mark.image.url(:original)
-            %br
-            %br
+    .col-sm-12
+      .flexslider
+        %ul.slides
+          %li=image_tag 'xeral-portada.png'
+          %li=image_tag 'area.png'
+          %li=image_tag 'vigo-portada.png'
 
   = render 'pe'

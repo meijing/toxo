@@ -48,7 +48,8 @@
 
 .font_toxo{
     font-family: 'Calligraffitti', cursive;
-    font-size: 80px;
+    font-size: 50px;
+    letter-spacing: 15px;
 }
 
 .align_right{
@@ -98,4 +99,12 @@
 }
 .easyzoom img {
     vertical-align: bottom;
+}
+
+.alineacion_menu{
+    margin-top: 20px;
+}
+
+.alineacion_facebook{
+   margin-top: 50px;
 }
