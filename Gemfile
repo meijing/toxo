@@ -68,3 +68,5 @@ gem 'aws-sdk'
 gem 'rambling-slider-rails'
 
 gem 'devise'
+
+gem 'meta-tags'
