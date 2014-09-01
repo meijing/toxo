@@ -5,8 +5,14 @@
     .col-sm-12
       .flexslider
         %ul.slides
-          %li=image_tag 'xeral-portada.png'
-          %li=image_tag 'area.png'
-          %li=image_tag 'vigo-portada.png'
+          -@images.each do |image|
+            %li
+              =image_tag image.image, :size=>'1259x624'
+              .carousel-caption
+                %h4
+                  %b
+                    =get_name_image_home(image.name)
+                %p
+                  =get_street_image_home(image.name)
 
   = render 'pe'

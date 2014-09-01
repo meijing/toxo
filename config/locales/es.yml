@@ -27,6 +27,9 @@ es:
         product_type_id: Tipo de producto
         category_type_id: Categoría
         style: Estilo
+      image_home:
+        name: Nombre
+        image: Foto
     errors:
       title: Se han producido errores
       models:

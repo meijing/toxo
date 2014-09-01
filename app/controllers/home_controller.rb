@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   def home
-    @products = Product.where('(outlet is null or outlet = 0)').sample(15)
+    @images = ImageHome.all
   end
 
   def who_are

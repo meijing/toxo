@@ -1,0 +1,26 @@
+.row
+  .col-sm-12
+    .well.bs-component
+      .form-horizontal
+        = form_for @image_home do |f|
+          - if @image_home.errors.any?
+            #error_explanation
+              .alert.alert-dismissable.alert-danger
+                %h4= "Se ha encontrado #{pluralize(@image_home.errors.count, "error")}"
+                = error_messages_for @image_home
+          .form-group
+            = f.label :name, :class=>'col-sm-2 control-label'
+            .col-sm-10
+              = f.text_field :name, :class=>'form-control'
+
+
+          .form-group
+            .col-sm-10
+              = f.file_field :image
+          - if !@image_home.image.nil?
+            .form-group
+              =image_tag @image_home.image
+
+          .form-group
+            .col-sm-10.col-sm-offset-2
+              = f.submit 'Guardar', :class=>'btn btn-primary foo'
