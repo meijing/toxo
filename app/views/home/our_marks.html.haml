@@ -12,7 +12,7 @@
                 -mark_group.each do |mark|
                   .col-sm-2
                     -if !mark.nil?
-                      = link_to productos_path(:mark_id => mark.id) do
+                      = link_to productos_path(:mark_id => mark.id, :anchor=>mark.name) do
                         =image_tag mark.image.url(:original)
 
           

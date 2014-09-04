@@ -5,4 +5,5 @@ class Mark < ActiveRecord::Base
   has_many :mark_product_types
   has_many :product_type, :through=> :mark_product_types
   has_many :products
+
 end

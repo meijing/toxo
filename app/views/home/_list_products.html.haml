@@ -6,8 +6,8 @@
 
   -find_categories(@mark, @category, @product_type).each do |cat|
     .btn-xs.panel_products_custom
-      = link_to cat.name, productos_path(:mark_id=>get_mark_id(@mark), :category_id=>cat.id), :class =>' btn btn-info'
+      = link_to cat.name, productos_path(:mark_id=>get_mark_id(@mark), :category_id=>cat.id, :anchor=>cat.name), :class =>' btn btn-info'
       .panel
         -find_product_types(@mark,cat, @product_type).each do |pt|
-          = link_to pt.name, productos_path(:mark_id=>get_mark_id(@mark), :product_type_id=>pt.id, :category_id=>cat.id), :class=>'btn btn-link'
+          = link_to pt.name, productos_path(:mark_id=>get_mark_id(@mark), :product_type_id=>pt.id, :category_id=>cat.id, :anchor=>pt.name+'_'+cat.name), :class=>'btn btn-link'
     %br

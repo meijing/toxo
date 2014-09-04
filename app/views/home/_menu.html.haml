@@ -6,26 +6,26 @@
           .navbar-collapse.collapse.navbar-inverse-collapse
             %ul.nav.navbar-nav
               %li
-                = link_to 'Quienes somos', who_are_path
+                = link_to 'Quienes somos', who_are_path(:anchor=>'toxo_historia')
 
               %li
-                = link_to 'Nuestras marcas', our_marks_path
+                = link_to 'Nuestras marcas', our_marks_path(:anchor=>'toxo_marcas')
 
               %li
-                = link_to 'Productos', all_products_path
+                = link_to 'Productos', all_products_path(:anchor=>'toxo_productos')
 
               - if !Promotion.is_active.nil? && !Promotion.is_active.empty?
                 %li.background_menu_promotion_rebajado
-                  = link_to 'Promociones', all_promotions_path
+                  = link_to 'Promociones', all_promotions_path(:anchor=>'toxo_promociones')
 
               - if Product.exists_products_outlet
                 %li
-                  = link_to 'Outlet', outlet_path
+                  = link_to 'Outlet', outlet_path(:anchor=>'toxo_outlet')
 
               %li
                 = link_to 'Contacto', contacto_path
 
               - if CategoryProductType.exists_sales
                 %li.background_menu_promotion_rebajado
-                  = link_to '¡Rebajas!', sales_path
+                  = link_to '¡Rebajas!', sales_path(:anchor=>'rebajas_toxo')
               

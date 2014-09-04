@@ -7,6 +7,7 @@
     .bs-component
       .row
         .col-sm-3
+          %h3 Las rebajas de Toxo
           -list_sales.each do |ls|
             .btn-success.btn-sm
               = link_to  ls[0].name, sales_path(:category_id => ls[0].id), :class=>'color_outlet'

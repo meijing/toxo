@@ -11,12 +11,12 @@
               .panel.panel-success
                 .panel-heading
                   %h3.panel-title
-                  = link_to cat.name, productos_path(:category_id => cat.id)
+                  = link_to cat.name, productos_path(:category_id => cat.id, :anchor=>cat.name)
                 .panel-body
                   %ul
                     -find_product_types_with_products(cat.id).each do |pt|
                       %li
-                        = link_to pt.name, productos_path(:category_id=>cat.id, :product_type_id=>pt.id)
+                        = link_to pt.name, productos_path(:category_id=>cat.id, :product_type_id=>pt.id, :anchor=>cat.name+'_'+pt.name)
 
 
   = render 'pe'
