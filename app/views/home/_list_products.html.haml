@@ -1,6 +1,6 @@
 .panel
   -if !@mark.nil?
-    =image_tag @mark.image.url(:original)
+    =image_tag @mark.image.url(:original), :alt=>@mark.name, :title=>@mark.name
     %br
     %br
 
