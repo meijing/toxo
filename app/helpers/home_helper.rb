@@ -49,4 +49,12 @@ module HomeHelper
       return mark.id
     end
   end
+
+  def get_mark_name mark
+    if mark.nil?
+      return ''
+    else
+      return '_'+mark.name
+    end
+  end
 end
