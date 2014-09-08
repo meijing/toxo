@@ -70,3 +70,5 @@ gem 'rambling-slider-rails'
 gem 'devise'
 
 gem 'meta-tags'
+
+gem 'unicorn'
