@@ -18,8 +18,6 @@ Toxo::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#home'
 
-  match 'google6c3e7b71e5e6c093' => 'home#google6c3e7b71e5e6c093', :as =>'google6c3e7b71e5e6c093', :via =>:get
-
   match 'administracion' =>'categories#management', :as =>'administracion', :via => :get
   match 'home' => 'home#home', :as =>'inicio', :via =>:get
   match 'contact' => 'home#contact', :as =>'contacto', :via =>:get
@@ -42,7 +40,7 @@ Toxo::Application.routes.draw do
 
   match '/sitemap' => 'sitemap#sitemap', :as =>'sitemap', :via=>:get
   
-
+  get '/google6c3e7b71e5e6c093', :to => redirect('/google6c3e7b71e5e6c093.html')
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
