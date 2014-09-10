@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-
+  respond_to :html, :xml, :json
   def home
     @images = ImageHome.all
   end

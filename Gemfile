@@ -70,6 +70,3 @@ gem 'rambling-slider-rails'
 gem 'devise'
 gem 'fog'
 gem 'meta-tags'
-
-gem 'unicorn'
-gem 'sitemap_generator'
