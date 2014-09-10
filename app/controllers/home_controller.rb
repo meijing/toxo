@@ -79,4 +79,8 @@ class HomeController < ApplicationController
     end
   end
 
+  def google6c3e7b71e5e6c093
+    
+  end
+
 end
