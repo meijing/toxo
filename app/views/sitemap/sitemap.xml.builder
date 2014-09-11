@@ -41,10 +41,56 @@ xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
   end
 
   @categories.each do |category|
-    xml.loc "http://www.toxo.es/productos?category_id="+category.id.to_s+"#"+category.name
-    xml.changefreq "monthly"
-    xml.priority 0.9
+    xml.url do
+      xml.loc "http://www.toxo.es/productos?category_id="+category.id.to_s+"#"+category.name
+      xml.changefreq "monthly"
+      xml.priority 0.9
+    end
   end
 
- 
+  @cpt.each do |cpt|
+    xml.url do
+      xml.loc "http://www.toxo.es/productos?category_id="+cpt.category_id.to_s+"&product_type_id="+cpt.product_type_id.to_s
+      xml.changefreq "monthly"
+      xml.priority 0.9
+    end
+  end
+
+  xml.url do
+    xml.loc "http://www.toxo.es/all_products#toxo_productos"
+    xml.changefreq "monthly"
+    xml.priority 0.85
+  end
+
+  xml.url do
+    xml.loc "http://www.toxo.es/all_promotions#toxo_promociones"
+    xml.changefreq "monthly"
+    xml.priority 0.69
+  end
+
+  @promotions.each do |promotion|
+    xml.url do
+      xml.loc "http://www.toxo.es/show_promotion?id="+promotion.id.to_s
+      xml.changefreq "monthly"
+      xml.priority 0.69
+    end
+  end
+
+  xml.url do
+    xml.loc "http://www.toxo.es/outlet#toxo_outlet"
+    xml.changefreq "monthly"
+    xml.priority 0.69
+  end
+
+  xml.url do
+    xml.loc "http://www.toxo.es/contact"
+    xml.changefreq "monthly"
+    xml.priority 0.69
+  end
+
+  xml.url do
+    xml.loc "http://www.toxo.es/sales#rebajas_toxo"
+    xml.changefreq "monthly"
+    xml.priority 0.85
+  end
 end
