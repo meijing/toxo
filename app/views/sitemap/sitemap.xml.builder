@@ -26,4 +26,19 @@ xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
     end
   end
 
+  @products.each do |product|
+    xml.url do
+      xml.loc "http://www.toxo.es/productos?category_id="+product.category_id.to_s+"&mark_id="+product.mark_id.to_s
+      xml.changefreq "monthly"
+      xml.priority 0.9
+    end
+
+    xml.url do
+      xml.loc "http://www.toxo.es/productos?category_id="+product.category_id.to_s+"&mark_id="+product.mark_id.to_s+"&product_type_id="+product.product_type_id.to_s
+      xml.changefreq "monthly"
+      xml.priority 0.9
+    end
+  end
+
+  
 end
