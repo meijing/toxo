@@ -18,4 +18,12 @@ xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
     xml.priority 0.85
   end
 
+  @marks.each do |mark|
+    xml.url do
+      xml.loc "http://www.toxo.es/productos?mark_id="+mark.id.to_s+"#"+mark.name
+      xml.changefreq "monthly"
+      xml.priority 0.9
+    end
+  end
+
 end
