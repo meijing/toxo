@@ -1,5 +1,26 @@
 module ApplicationHelper
 
+  def get_title meta_title
+    if meta_title.nil? || meta_title == ''
+      return 'Toxo | Bolsos y complementos Santiago de Compostela y Vigo'
+    end
+    return meta_title
+  end
+
+  def create_title(product_type, category, mark)
+    @title = 'Toxo | '
+    if !product_type.nil?
+      @title = @title.concat(product_type.name).concat(' ')
+    end
+    if !category.nil?
+      @title = @title.concat(category.name).concat(' ')
+    end
+    if !mark.nil?
+      @title = @title.concat(mark.name).concat(' ')
+    end
+    @title
+  end
+
   def error_messages_for models
      if models.errors.any?
         content_tag :div, id: "error_explanation" do
