@@ -21,6 +21,13 @@ module ApplicationHelper
     @title
   end
 
+  def get_description meta_description
+    if meta_description.nil? || meta_description == ''
+      return 'Venta de bolsos de piel, ecopiel y de fibra de señora y caballero, artículos de viaje, billeteras, cinturones, pashminas y regalo en general. Estamos en Santiago de Compostela y en Vigo'
+    end
+    return meta_description
+  end
+
   def error_messages_for models
      if models.errors.any?
         content_tag :div, id: "error_explanation" do
