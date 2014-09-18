@@ -1,3 +1,4 @@
+# encoding: utf-8
 module ApplicationHelper
 
   def get_title meta_title
