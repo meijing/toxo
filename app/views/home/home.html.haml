@@ -3,12 +3,24 @@
   =render 'header_home'
 
   .row
-    .col-sm-12
+    .col-sm-3
+      .row
+        =link_to '¡Toxo en Rebajas!', sales_path(:anchor=>'rebajas_toxo'),:class=>'btn btn-primary'
+      .row
+        %hr
+        %p En Toxo encontrarás todos los complementos que estás buscando
+        =link_to (image_tag 'toxo_imagen_bolsos.png'), all_products_path(:anchor=>'toxo_productos')
+      .row
+        %hr
+        %p Busca en Toxo lo último de tus marcas favoritas
+        =link_to (image_tag 'toxo_marcas.png'),our_marks_path(:anchor=>'toxo_marcas')
+      
+    .col-sm-9
       .flexslider
         %ul.slides
           -@images.each do |image|
             %li
-              =image_tag image.image, :size=>'1259x624'
+              =image_tag image.image, :size=>'1259x624', :alt=>get_name_image_home(image.name), :title=>get_name_image_home(image.name).concat(' ').concat(get_street_image_home(image.name))
               .carousel-caption
                 %h4
                   %b
