@@ -3,7 +3,7 @@ module ApplicationHelper
 
   def get_title meta_title
     if meta_title.nil? || meta_title == ''
-      return 'Toxo | Bolsos y complementos Santiago de Compostela y Vigo'
+      return 'Toxo'
     end
     return meta_title
   end
