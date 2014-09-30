@@ -3,16 +3,28 @@
   =render 'header_home'
 
   .row
+    %hr
     .col-sm-3
       .row
-        =link_to '¡Toxo en Rebajas!', sales_path(:anchor=>'rebajas_toxo'),:class=>'btn btn-primary'
-      .row
-        %hr
-        %p En Toxo encontrarás todos los complementos que estás buscando
+        %p
+          En
+          %b Toxo
+          nos dedicamos a la venta de
+          %b bolsos de piel, ecopiel y de fibra
+          para señora y caballero, artículos de viaje, billeteras, cinturones, pashminas y regalo en general.
         =link_to (image_tag 'toxo_bolsos.png'), all_products_path(:anchor=>'toxo_productos')
       .row
         %hr
-        %p Busca en Toxo lo último de tus marcas favoritas
+        %p 
+          Busca en
+          %b Toxo
+          lo último de tus marcas favoritas.
+          %b Bolsos Mandarina Duck,
+          %b maletas de Samsonite 
+          y
+          %b Rimowa,
+          %b paraguas de isotoner 
+          y mucho más.
         =link_to (image_tag 'toxo_marcas.png'),our_marks_path(:anchor=>'toxo_marcas')
       
     .col-sm-9
