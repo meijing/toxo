@@ -79,6 +79,10 @@ class HomeController < ApplicationController
     end
   end
 
+  def image_zoom
+    @product = Product.find(params[:product_id])
+  end
+
   def google6c3e7b71e5e6c093
     
   end
