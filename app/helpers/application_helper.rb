@@ -3,7 +3,7 @@ module ApplicationHelper
 
   def get_title meta_title
     if meta_title.nil? || meta_title == ''
-      return 'Toxo'
+      return 'Toxo | Bolsos, complementos y viaje'
     end
     return meta_title
   end
@@ -24,7 +24,7 @@ module ApplicationHelper
 
   def get_description meta_description
     if meta_description.nil? || meta_description == ''
-      return 'Venta de bolsos de piel, ecopiel y de fibra de señora y caballero, artículos de viaje, billeteras, cinturones, pashminas y regalo en general. Estamos en Santiago de Compostela y en Vigo'
+      return 'Toxo se dedica a la venta de bolsos de señora y caballero, artículos de viaje, billeteras y regalo en general. Estamos en Santiago de Compostela y en Vigo'
     end
     return meta_description
   end
