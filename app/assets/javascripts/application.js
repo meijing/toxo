@@ -21,6 +21,8 @@
 //= require bootstrap-datepicker
 //= require jquery.rambling.slider
 //= require easyzoom
+//= require lightbox
+
 
 $(window).load(function() {
     $('.flexslider').flexslider()({

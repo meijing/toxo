@@ -20,7 +20,7 @@
                   .alert.alert-dismissable.alert-success
                     .row
                       .col-sm-4
-                        =link_to (image_tag p.image.url(:medium)), image_zoom_path(:product_id=>p.id), :target=> '_blank'
+                        =link_to (image_tag p.image.url(:medium)),  p.image.url(:original), :'data-lightbox'=>'example-1', :class=>'example-image-link'
 
                       .col-sm-8
                         %h4= p.name
