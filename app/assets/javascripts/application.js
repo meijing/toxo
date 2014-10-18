@@ -22,31 +22,28 @@
 //= require jquery.rambling.slider
 //= require easyzoom
 //= require lightbox
+//= require jquery.elevatezoom
 
 
 $(window).load(function() {
+  
+    $(".zoom").elevateZoom({
+      zoomWindowWidth:200,
+      zoomWindowHeight:200,
+      zoomWindowPosition:11
+    });
+  
     $('.flexslider').flexslider()({
-    animation: "slide",
-    controlsContainer: '.flexslider',
-    selector: '.slides > div',
-    useCSS: false
+      animation: 'fade',
+      controlsContainer: '.flexslider',
+      selector: '.slides > div',
+      useCSS: false
+    });
+ 
   });
-  });
+
 
  $(document).on("focus", "[data-behaviour~='datepicker']", function(e){
     $(this).datepicker({"format": "dd-mm-yyyy", "weekStart": 1, "autoclose": true})
 })
-// Instantiate EasyZoom plugin
-var $easyzoom = $('.easyzoom').easyZoom();
 
-// Get the instance API
-var api = $easyzoom.data('easyZoom');
-
-$(function(){
-    $('.zoom img').each(function() {
-        var original_img_url = $(this).attr('data-zoom-url');
-        $(this)
-        .parent()
-        .zoom({url: original_img_url});
-    });
-});
