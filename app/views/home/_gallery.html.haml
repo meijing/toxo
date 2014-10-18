@@ -6,7 +6,7 @@
           -if !@products.nil?
             -@products.each do |product|
               %li
-                =image_tag product.image(:medium), :class=>"zoom",:'data-zoom-image'=>product.image(:max)
+                =image_tag product.image(:original), :class=>"zoom",:'data-zoom-image'=>product.image(:max)
           
                 - if product.sale == 1 && product.new_collection != 1
                   .carousel-caption_sale
