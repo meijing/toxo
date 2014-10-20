@@ -28,16 +28,14 @@
 $(window).load(function() {
   
     $(".zoom").elevateZoom({
-      zoomWindowWidth:200,
-      zoomWindowHeight:200,
-      zoomWindowPosition:11
+      zoomWindowWidth:350,
+      zoomWindowHeight:300,
+      zoomWindowPosition:9
     });
   
     $('.flexslider').flexslider()({
-      animation: 'fade',
-      controlsContainer: '.flexslider',
-      selector: '.slides > div',
-      useCSS: false
+      animation: 'fade'
+      
     });
  
   });
