@@ -49,7 +49,7 @@
 
           .form-group
             .col-sm-10.col-sm-offset-2
-              = f.submit 'Guardar', :class=>'btn btn-primary foo'
+              = f.submit 'Guardar', :class=>'btn btn-primary foo', data: { confirm: "Estás a punto de actualizar una MARCA. ¿Estás seguro de querer hacerlo? Si no queires hacerlo solo tienes que pulsar en CANCELAR y no pasará nada.".html_safe, class:'btn-success' }
 
   .col-sm-6
     =link_to 'Ver productos asociados', products_path(:category_id => @category_id,:product_type_id => @product_type_id,:mark_id => @mark.id), :class=>'btn btn-success'
