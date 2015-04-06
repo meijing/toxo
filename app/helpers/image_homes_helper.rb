@@ -2,7 +2,7 @@
 module ImageHomesHelper
 
   def get_name_image_home name
-    if name.upcase == 'Area central'.upcase || name.upcase == 'Xeral Pardiñas'.upcase
+    if name.upcase == 'Area central'.upcase || name.upcase == 'Xeneral Pardiñas'.upcase
       return 'TOXO EN SANTIAGO DE COMPOSTELA'
     elsif name.upcase == 'Vigo'.upcase
       return 'TOXO EN VIGO'
@@ -13,7 +13,7 @@ module ImageHomesHelper
     if name.upcase == 'Area central'.upcase
       return 'Área Central'
     elsif name.upcase == 'Xeral Pardiñas'.upcase
-      return 'Xeral Pardiñas'
+      return 'Xeneral Pardiñas'
     elsif name.upcase == 'Vigo'.upcase
       return 'García Barbón'
     end
