@@ -13,7 +13,7 @@ module ImageHomesHelper
     if name.upcase == 'Area central'.upcase
       return 'Área Central'
     elsif name.upcase == 'Xeral Pardiñas'.upcase
-      return 'Xeral Pardiñas'
+      return 'Xeneral Pardiñas'
     elsif name.upcase == 'Vigo'.upcase
       return 'García Barbón'
     end
