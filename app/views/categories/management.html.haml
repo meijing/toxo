@@ -51,8 +51,14 @@
                     =link_to image_tag('estadisticas.jpg', :size=>'300x200'), 'http://www.google.es/intl/es/analytics/', :target=>'_blank'
 
           .row
-            .col-sm-12
+            .col-sm-6
               .bs-component
                 .panel.panel-danger
                   .panel-heading
                     %h3=link_to 'Fotos de portada', image_homes_path
+
+            .col-sm-6
+              .bs-component
+                .panel.panel-danger
+                  .panel-heading
+                    %h3=link_to 'Textos Portada', textos_path

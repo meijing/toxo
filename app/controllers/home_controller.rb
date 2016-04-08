@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   respond_to :html, :xml, :json
   def home
     @images = ImageHome.all
+    @textos = Texto.first
   end
 
   def who_are

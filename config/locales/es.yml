@@ -30,6 +30,9 @@ es:
       image_home:
         name: Nombre
         image: Foto
+      texto:
+        description: Texto inferior
+        name: Texto superior
     errors:
       title: Se han producido errores
       models:

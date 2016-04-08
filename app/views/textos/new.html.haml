@@ -1,0 +1,10 @@
+.container
+  .bs-docs-section
+    .row
+      .col-sm-12
+        .page-header
+          %h3 Nuevo texto
+
+    = render 'form'
+
+    = link_to 'Volver a la lista de textos', textos_path, :class=>'btn btn-danger'

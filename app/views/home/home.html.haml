@@ -7,25 +7,13 @@
     .col-sm-3
       .row
         %p
-          En
-          %b Toxo
-          nos dedicamos a la venta de
-          %b bolsos de piel, ecopiel y de fibra
-          para señora y caballero, artículos de viaje, billeteras, cinturones, pashminas y regalo en general.
-        =link_to (image_tag 'toxo_bolsos.jpg', :size=>'250x180'), all_products_path(:anchor=>'toxo_productos')
+          = @textos.name.html_safe
+        =link_to (image_tag @textos.image, :size=>'250x180', :style => "border: 4px solid #772953"), all_products_path(:anchor=>'toxo_productos')
       .row
         %hr
         %p 
-          Busca en
-          %b Toxo
-          lo último de tus marcas favoritas.
-          %b Bolsos de Cats, Venetta, Noco, Axel..., 
-          %b maletas de Samsonite 
-          y
-          %b Rimowa,
-          %b paraguas de isotoner 
-          y mucho más.
-        =link_to (image_tag 'toxo_marcas.png'),our_marks_path(:anchor=>'toxo_marcas')
+          = @textos.description.html_safe
+        =link_to (image_tag @textos.second_image),our_marks_path(:anchor=>'toxo_marcas')
       
     .col-sm-9
       .flexslider

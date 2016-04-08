@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Description:
+  = @texto.description
+%p
+  %b Image:
+  = @texto.image
+%p
+  %b Second image:
+  = @texto.second_image
+
+= link_to 'Edit', edit_texto_path(@texto)
+\|
+= link_to 'Back', textos_path

@@ -10,6 +10,9 @@
       .row
         .col-sm-6
           .alert.alert-dismissable.alert-success
+
+            =image_tag "http://toxo.s3.amazonaws.com/products/images/000/000/061/original/DSCF4593.jpg?1413838224", :class=>"zoom",:'data-zoom-image'=>"http://toxo.s3.amazonaws.com/products/images/000/000/061/max/DSCF4593.jpg?1413838224"
+
             =link_to 'https://maps.google.com/maps?q=General+Pardi%C3%B1as,+23+santiago+de+compostela&hl=en&ie=UTF8&ll=42.874347,-8.546235&spn=0.002205,0.004935&sll=42.876341,-8.545647&sspn=0.008822,0.019741&hq=General&hnear=R%C3%BAa+do+Xeneral+Pardi%C3%B1as,+23,+15701+Santiago+de+Compostela,+La+Coru%C3%B1a,+Spain&t=m&fll=42.874203,-8.545877&fspn=0.002205,0.004935&z=18&layer=c&cbll=42.874347,-8.546235&panoid=I_5Asv5inguNe8rOXxoYZA&cbp=12,106.03,,0,-3.52', :target => '_blank' do
               =image_tag 'xeral-contacto.jpg'
             %p
@@ -34,6 +37,10 @@
               García Barbón, 21 - 36201 Vigo
             %p
               Tel.: 986 22 07 14 - Fax: 986 22 79 23
+
+      .row
+        -Product.where('category_id=7 and product_type_id=19').each do |p|
+          =image_tag p.image.url(:max)
 
            
   = render 'pe'

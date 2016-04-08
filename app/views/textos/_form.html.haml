@@ -1,0 +1,38 @@
+.row
+  .col-sm-12
+    .well.bs-component
+      .form-horizontal
+        = form_for @texto do |f|
+          - if @texto.errors.any?
+            #error_explanation
+              .alert.alert-dismissable.alert-danger
+                %h4= "Se ha encontrado #{pluralize(@texto.errors.count, "error")}"
+                = error_messages_for @texto
+          .form-group
+            = f.label :name, :class=>'col-sm-2 control-label'
+            .col-sm-10
+              = f.text_area :name, :class=>'form-control'
+
+          .form-group
+            = f.label :description, :class=>'col-sm-2 control-label'
+            .col-sm-10
+              = f.text_area :description, :class=>'form-control'
+
+          .form-group
+            .col-sm-10
+              = f.file_field :image
+          - if !@texto.image.nil?
+            .form-group
+              =image_tag @texto.image
+
+          .form-group
+            .col-sm-10
+              = f.file_field :second_image
+          - if !@texto.second_image.nil?
+            .form-group
+              =image_tag @texto.second_image
+
+          .form-group
+            .col-sm-10.col-sm-offset-2
+              = f.submit 'Guardar', :class=>'btn btn-primary foo'
+

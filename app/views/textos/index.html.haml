@@ -1,0 +1,21 @@
+.container
+  .col-sm-12
+    .page-header
+      %h1 Toxo Piel: Textos e imágenes de la portada
+    .bs-component
+      .well
+        %p
+          .col-sm-10
+            = link_to 'Crear', new_texto_path, :class=>'btn btn-primary'
+          .col-sm-2
+            = link_to 'Volver al índice', administracion_path, :class=>'btn btn-danger'
+        %p
+        %table.table.table-striped.table-hover
+          %tr.info
+            %th.th
+              Texto
+          -@textos.each do |image|
+            %tr.warning
+              %td.td
+                = link_to image.description, edit_texto_path(image)
+

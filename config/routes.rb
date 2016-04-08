@@ -1,4 +1,6 @@
 Toxo::Application.routes.draw do
+  resources :textos
+
   resources :image_homes
 
   devise_for :users
