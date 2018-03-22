@@ -87,5 +87,10 @@ class HomeController < ApplicationController
   def google6c3e7b71e5e6c093
     
   end
+  
+  def politica_cookies
+  
+  end
+  
 
 end

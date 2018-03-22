@@ -34,6 +34,8 @@ Toxo::Application.routes.draw do
   match 'delete_old_promotion' => 'promotions#delete_old_promotion', :as =>'delete_old_promotion', :via =>:get
   match 'delete_new_collection' => 'products#delete_new_collection', :as =>'delete_new_collection', :via =>:get
   match 'image_zoom' => 'home#image_zoom', :as =>'image_zoom', :via =>:get
+  
+  match 'politicacookies' => 'home#politica_cookies', :as =>'politica_cookies', :via =>:get
 
   match 'up' => 'marks#up', :as =>'up_mark', :via =>:get
   match 'down' => 'marks#down', :as =>'down_mark', :via =>:get
