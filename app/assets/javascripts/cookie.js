@@ -152,7 +152,7 @@ $(document).ready(function()
 {
 	if (!$.cookie("msgcookie"))
 	{
-		$("body").prepend("<div class='msgcookie'><p><a href='#' class='close'>X</a>Esta web utiliza cookies propias y de terceros para ofrecerle una mejor experiencia y servicio. Al navegar o utilizar nuestros servicios el usuario acepta el uso que hacemos de las cookies.  <a href='www.toxo.es/politicacookies'>M&aacute;s informaci&oacute;n</a></p></div>");
+		$("body").prepend("<div class='msgcookie'><p><a href='#' class='close'>X</a>Esta web utiliza cookies propias y de terceros para ofrecerle una mejor experiencia y servicio. Al navegar o utilizar nuestros servicios el usuario acepta el uso que hacemos de las cookies.  <a href='politicacookies'>M&aacute;s informaci&oacute;n</a></p></div>");
 		
 		$("body").on("click", ".close", function(e) {
 			e.preventDefault();
