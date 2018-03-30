@@ -3,7 +3,7 @@ document.write("<style>.msgcookie{"+
     "position:fixed;"+
     "bottom:0;"+
     "height:50px;"+
-    "width:100%;"+
+    "width:90%;"+
     "background:rgba(62,21,43,0.8);"+
     "color:#fff;"+
     "font-size:11px;"+
@@ -22,7 +22,7 @@ document.write("<style>.msgcookie{"+
     "float:right;"+
     "display:block;"+
     "width:16px;"+
-    "overflow:hidden;"+
+    "overflow:visible;"+
     "opacity:0.5;"+
 "}"+
 "a.close:hover{"+
@@ -152,7 +152,7 @@ $(document).ready(function()
 {
 	if (!$.cookie("msgcookie"))
 	{
-		$("#pepaxina").prepend("<div class='msgcookie'><p><a href='#' class='close'>X</a>Esta web utiliza cookies propias y de terceros para ofrecerle una mejor experiencia y servicio. Al navegar o utilizar nuestros servicios el usuario acepta el uso que hacemos de las cookies.  <a href='politicacookies'>M&aacute;s informaci&oacute;n</a></p></div>");
+		$("#pepaxina").prepend("<div class='msgcookie'><p><a href='#' class='close'>X</a>Esta web utiliza cookies de terceros para ofrecerle una mejor experiencia y servicio. Al navegar o utilizar nuestros servicios el usuario acepta el uso que hacemos de las cookies.  <a href='politicacookies'>M&aacute;s informaci&oacute;n</a></p></div>");
 		
 		$("#pepaxina").on("click", ".close", function(e) {
 			e.preventDefault();
