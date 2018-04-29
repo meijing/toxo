@@ -94,7 +94,7 @@ class HomeController < ApplicationController
   
   def outletcambiado
     @typeproduct = params[:type]
-    
+    @products = []
     if @typeproduct.nil?
       @desctypeproduct = 'OUTLET'
     elsif @typeproduct == 'V'

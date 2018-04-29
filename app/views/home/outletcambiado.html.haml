@@ -42,12 +42,12 @@
                               .row
                                 .col-sm-3
                                   %span.old_price_outlet
-                                    =product.old_price
+                                    =number_to_currency(product.old_price)
                                   %span.old_price_outlet €
                                 .col-sm-3
                                   %b
                                     %span
-                                      =product.outlet_price
+                                      =number_to_currency(product.outlet_price)
                                     %span €
             
   = render 'pe'
