@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
   has_attached_file :image, styles: {original: '600x450', medium: '200x200>', thumb: '48x48>' }, :default_url => "/images/thumb/missing.png"
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
+
   belongs_to :mark
 
   scope :is_promotion, lambda {|id|
@@ -23,6 +24,18 @@ class Product < ActiveRecord::Base
 
   def self.get_all_products_outlet
     Product.where('outlet=1')
+  end
+  
+  def self.get_all_products_outlet_cambiado(type)
+    if type == 'V' then
+      Product.joins('join category_product_types mpt on mpt.product_type_id = products.product_type_id').joins('join categories on categories.id = mpt.category_id').joins('join marks on marks.id = products.mark_id').where('products.outlet=1 and categories.name like "Viaje"').order('marks.name, products.name').in_groups_of(3)
+    elsif type == 'B' then
+      Product.joins('join category_product_types mpt on mpt.product_type_id = products.product_type_id').joins('join product_types pt on pt.id = mpt.product_type_id').joins('join marks on marks.id = products.mark_id').where('pt.name like "Bolso%"').order('marks.name, products.name').in_groups_of(3)
+    elsif type == 'O' then
+      Product.joins('join category_product_types mpt on mpt.product_type_id = products.product_type_id').joins('join categories on categories.id = mpt.category_id').joins('join marks on marks.id = products.mark_id').where('products.outlet=1 and categories.name like "Otros"').order('marks.name, products.name').in_groups_of(3)
+    else
+      Product.joins(:mark).where('outlet=1').order('marks.name, products.name').in_groups_of(3)
+    end 
   end
 
   def check_is_for_sale

@@ -16,6 +16,8 @@ es:
         product_type_id: Tipo de producto
         mark_id: Marca
         new_collection: Nueva colección
+        old_price: Precio anterior
+        outlet_price: Precio outlet
       promotion:
         description: Descripción
         date_start: Empieza en

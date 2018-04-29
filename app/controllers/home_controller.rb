@@ -92,5 +92,20 @@ class HomeController < ApplicationController
   
   end
   
+  def outletcambiado
+    @typeproduct = params[:type]
+    
+    if @typeproduct.nil?
+      @desctypeproduct = 'OUTLET'
+    elsif @typeproduct == 'V'
+      @desctypeproduct = 'OUTLET VIAJE'
+    elsif @typeproduct == 'B'
+      @desctypeproduct = 'OUTLET BOLSOS'
+    elsif @typeproduct == 'O'
+      @desctypeproduct = 'OUTLET OTROS'
+    end
+    
+    @products = Product.get_all_products_outlet_cambiado(@typeproduct)
+  end
 
 end

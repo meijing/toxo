@@ -1,0 +1,53 @@
+- content_for :meta_title do 'Toxo | Outlet' end
+- content_for :meta_description do 'Toxo trabaja una gran variedad de marcas de las que ofrecemos los mejores productos' end
+.container
+  =render 'header_home'
+    
+  
+
+  .well
+    .bs-component
+      .row
+        .col-sm-12
+          .alert.alert-dismissable.alert-danger
+            .row
+              .col-sm-10
+                %center
+                  %h1 
+                    = @desctypeproduct
+            .row.bs-component
+              %ul.nav.nav-tabs
+                %li.nav-item
+                  = link_to 'Viaje',outletcambiado_path(:type=>"V",:anchor=>'toxo_outlet')
+                %li.nav-item
+                  = link_to 'Bolsos', outletcambiado_path(:type=>"B",:anchor=>'toxo_outlet')
+                %li.nav-item
+                  = link_to 'Otros', outletcambiado_path(:type=>"O",:anchor=>'toxo_outlet')
+            
+            -if !@products.nil?
+              -@products.each do |rowproduct|
+                .row
+                  .col-sm-12
+                    .row
+                      -rowproduct.each do |product|
+                        .col-sm-4
+                          -if !product.nil?
+                            .alert.alert-dismissable.alert-success
+                              %p
+                                =link_to (image_tag product.image.url(:medium)),  product.image.url(:original), :'data-lightbox'=>'example-1', :class=>'example-image-link'
+                              %h4= product.name
+                              %p
+                                -if !product.description.nil?
+                                  =simple_format(product.description)
+                              .row
+                                .col-sm-3
+                                  %span.old_price_outlet
+                                    =product.old_price
+                                  %span.old_price_outlet €
+                                .col-sm-3
+                                  %b
+                                    %span
+                                      =product.outlet_price
+                                    %span €
+            
+  = render 'pe'
