@@ -52,7 +52,7 @@ Product.find(2861).update(old_price: 62);
 Product.find(3033).update(old_price: 67);
 Product.find(3034).update(old_price: 65);
 Product.find(2862).update(old_price: 54);
-Product.find(2864).update(old_price: 65-);
+Product.find(2864).update(old_price: 65);
 Product.find(2581).update(old_price: 44);
 Product.find(2973).update(old_price: 130);
 Product.find(2811).update(old_price: 79);
