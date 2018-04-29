@@ -32,7 +32,7 @@ class Product < ActiveRecord::Base
     elsif type == 'B' then
       Product.joins('join category_product_types mpt on mpt.product_type_id = products.product_type_id').joins('join product_types pt on pt.id = mpt.product_type_id').joins('join marks on marks.id = products.mark_id').where('pt.name like ?', 'Bolso%').order('marks.name, products.name').in_groups_of(3)
     elsif type == 'O' then
-      Product.joins('join category_product_types mpt on mpt.product_type_id = products.product_type_id').joins('join categories on categories.id = mpt.category_id').joins('join marks on marks.id = products.mark_id').where('products.outlet=1 and categories.name like ?', 'Otros').order('marks.name, products.name').in_groups_of(3)
+      Product.joins('join category_product_types mpt on mpt.product_type_id = products.product_type_id').joins('join categories on categories.id = mpt.category_id').joins('join marks on marks.id = products.mark_id').joins('join product_types pt on pt.id = mpt.product_type_id').where('products.outlet=1 and categories.name not like ? and pt.name not like ?', 'Viaje', 'Bolso%').order('marks.name, products.name').in_groups_of(3)
     else
       Product.joins(:mark).where('outlet=1').order('marks.name, products.name').in_groups_of(3)
     end 
