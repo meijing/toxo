@@ -40,11 +40,11 @@
                                 -if !product.description.nil?
                                   =simple_format(product.description)
                               .row
-                                .col-sm-3
+                                .col-sm-4
                                   %span.old_price_outlet
                                     =number_to_currency(product.old_price)
                                   %span.old_price_outlet €
-                                .col-sm-3
+                                .col-sm-4
                                   %b
                                     %span
                                       =number_to_currency(product.outlet_price)
