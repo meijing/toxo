@@ -12,11 +12,11 @@ class ProductsController < ApplicationController
       @product_type_id = params[:product_type_id]
       @category_id = params[:category_id]
       if !@category_id.nil? && !@product_type_id.nil? && !@mark_id.nil?
-        @products = Product.where('category_id = ? and product_type_id = ? and mark_id = ?', @category_id, @product_type_id, @mark_id).order(:name)
+        @products = Product.joins(:mark).where('marks.hidden = 0 and category_id = ? and product_type_id = ? and mark_id = ?', @category_id, @product_type_id, @mark_id).order('products.name')
       elsif !@mark_id.nil?
-          @products = Product.where('mark_id = ?', @mark_id).order(:name)
+          @products = Product.joins(:mark).where('marks.hidden = 0 and mark_id = ?', @mark_id).order('products.name')
       else
-        @products = Product.all.order(:name)
+        @products = Product.joins(:mark).where('marks.hidden = 0').all.order('products.name')
       end
     end
   end
