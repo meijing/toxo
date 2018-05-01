@@ -28,11 +28,11 @@ class Product < ActiveRecord::Base
   
   def self.get_all_products_outlet_cambiado(type)
     if type == 'V' then
-      Product.joins('join category_product_types mpt on mpt.product_type_id = products.product_type_id').joins('join categories on categories.id = mpt.category_id').joins('join marks on marks.id = products.mark_id').where('products.outlet=1 and categories.name like ?','Viaje').order('marks.name, products.name').in_groups_of(3)
+      Product.joins('join mark_product_types mpt on mpt.product_type_id = products.product_type_id and mpt.mark_id = products.mark_id').joins('join category_product_types cpt on cpt.product_type_id = mpt.product_type_id and cpt.category_id = products.category_id').joins('join categories cat on cat.id = cpt.category_id').joins('join marks m on m.id = mpt.mark_id').where('products.outlet=1 and cat.name like ?', 'Viaje').order('m.name, products.name').in_groups_of(3)
     elsif type == 'B' then
-      Product.joins('join category_product_types mpt on mpt.product_type_id = products.product_type_id').joins('join product_types pt on pt.id = mpt.product_type_id').joins('join marks on marks.id = products.mark_id').where('pt.name like ?', 'Bolso%').order('marks.name, products.name').in_groups_of(3)
+      Product.joins('join mark_product_types mpt on mpt.product_type_id = products.product_type_id and mpt.mark_id = products.mark_id').joins('join category_product_types cpt on cpt.product_type_id = mpt.product_type_id and cpt.category_id = products.category_id').joins('join categories cat on cat.id = cpt.category_id').joins('join marks m on m.id = mpt.mark_id').where('products.outlet=1 and cat.name like ?', 'Bolso%').order('m.name, products.name').in_groups_of(3)
     elsif type == 'O' then
-      Product.joins('join category_product_types mpt on mpt.product_type_id = products.product_type_id').joins('join categories on categories.id = mpt.category_id').joins('join marks on marks.id = products.mark_id').joins('join product_types pt on pt.id = mpt.product_type_id').where('products.outlet=1 and categories.name not like ? and pt.name not like ?', 'Viaje', 'Bolso%').order('marks.name, products.name').in_groups_of(3)
+      Product.joins('join mark_product_types mpt on mpt.product_type_id = products.product_type_id and mpt.mark_id = products.mark_id').joins('join category_product_types cpt on cpt.product_type_id = mpt.product_type_id and cpt.category_id = products.category_id').joins('join categories cat on cat.id = cpt.category_id').joins('join marks m on m.id = mpt.mark_id').where('products.outlet=1 and cat.name not like ? and cat.name not like ?','Viaje', 'Bolso%').order('m.name, products.name').in_groups_of(3)
     else
       Product.joins(:mark).where('outlet=1').order('marks.name, products.name').in_groups_of(3)
     end 
