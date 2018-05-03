@@ -11,13 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140828191130) do
+ActiveRecord::Schema.define(version: 20180423220640) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "priority"
   end
 
   create_table "category_product_types", force: true do |t|
@@ -67,24 +66,26 @@ ActiveRecord::Schema.define(version: 20140828191130) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "sale"
   end
 
   create_table "products", force: true do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "mark_id"
+    t.integer  "product_type_id"
+    t.integer  "category_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.integer  "mark_id"
-    t.integer  "product_type_id"
-    t.integer  "category_id"
     t.integer  "outlet"
     t.integer  "sale"
     t.integer  "new_collection"
+    t.string   "copy_desc"
+    t.float    "old_price"
+    t.float    "outlet_price"
   end
 
   create_table "promotions", force: true do |t|
@@ -100,6 +101,21 @@ ActiveRecord::Schema.define(version: 20140828191130) do
     t.integer  "mark_id"
     t.integer  "product_type_id"
     t.integer  "category_type_id"
+  end
+
+  create_table "textos", force: true do |t|
+    t.string   "description"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "second_image_file_name"
+    t.string   "second_image_content_type"
+    t.integer  "second_image_file_size"
+    t.datetime "second_image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "users", force: true do |t|

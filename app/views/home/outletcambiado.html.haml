@@ -42,12 +42,14 @@
                               .row
                                 .col-sm-4
                                   %span.old_price_outlet
-                                    =number_to_currency(product.old_price)
+                                    - if !product.old_price.nil?
+                                      = "%.2f" % product.old_price
                                   %span.old_price_outlet €
                                 .col-sm-4
                                   %b
                                     %span
-                                      =number_to_currency(product.outlet_price)
+                                      - if !product.outlet_price.nil?
+                                        = "%.2f" % product.outlet_price
                                     %span €
             
   = render 'pe'

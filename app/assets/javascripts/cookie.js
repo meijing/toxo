@@ -2,18 +2,18 @@ document.write("<style>.msgcookie{"+
 	"display:block;"+
     "position:fixed;"+
     "bottom:0;"+
-    "height:50px;"+
-    "width:90%;"+
+    "height:150px;"+
+    "width:150px;"+
     "background:rgba(62,21,43,0.8);"+
     "color:#fff;"+
     "font-size:11px;"+
     "font-family:sans-serif"+
 "}"+
 ".msgcookie p{"+
-    "width:960px;"+
+    "width:150px;"+
     "margin:0 auto;"+
     "background:url(cookie.png) 0 0 no-repeat;"+
-    "padding:10px 0 0 30px"+
+    "padding:10px 0 0 10px"+
 "}"+
 ".msgcookie p a:link,.msgcookie p a:active,.msgcookie p a:visited,.msgcookie p a:hover{"+
     "color:#fff"+

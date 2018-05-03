@@ -145,3 +145,9 @@
     text-decoration:none;
     color:#3e152b;
 }
+
+.old_price_outlet{
+    color:red;
+    text-decoration:line-through;
+    font-size: smaller;
+}
