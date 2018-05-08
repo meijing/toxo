@@ -13,6 +13,8 @@ Toxo::Application.routes.draw do
   resources :product_types
 
   resources :categories
+  
+  resources :config_outlets
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -35,7 +37,7 @@ Toxo::Application.routes.draw do
   match 'delete_old_promotion' => 'promotions#delete_old_promotion', :as =>'delete_old_promotion', :via =>:get
   match 'delete_new_collection' => 'products#delete_new_collection', :as =>'delete_new_collection', :via =>:get
   match 'image_zoom' => 'home#image_zoom', :as =>'image_zoom', :via =>:get
-  
+
   match 'politicacookies' => 'home#politica_cookies', :as =>'politica_cookies', :via =>:get
 
   match 'up' => 'marks#up', :as =>'up_mark', :via =>:get

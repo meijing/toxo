@@ -93,19 +93,20 @@ class HomeController < ApplicationController
   end
   
   def outletcambiado
+    @nameCategoriesOutlet = Category.select('name, 1 as tipo').joins('join config_outlets cf on cf.category_id = categories.id')
+    @nameCategoriesOutlet = @nameCategoriesOutlet + (ProductType.select('name, 2 as tipo').joins('join config_outlets cf on cf.product_type_id = product_types.id'))
+    
     @typeproduct = params[:type]
+    @typeproductname = params[:name_type]
+
     @products = []
     if @typeproduct.nil?
       @desctypeproduct = 'OUTLET'
-    elsif @typeproduct == 'V'
-      @desctypeproduct = 'OUTLET VIAJE'
-    elsif @typeproduct == 'B'
-      @desctypeproduct = 'OUTLET BOLSOS'
-    elsif @typeproduct == 'O'
-      @desctypeproduct = 'OUTLET OTROS'
+    else
+      @desctypeproduct = 'OUTLET ' + @typeproductname.upcase
     end
     
-    @products = Product.get_all_products_outlet_cambiado(@typeproduct)
+    @products = Product.get_all_products_outlet_cambiado(@typeproduct, @typeproductname)
   end
 
 end

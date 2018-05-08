@@ -1,0 +1,38 @@
+.container
+  .bs-docs-section
+    .row
+      .col-sm-12
+        = link_to 'Volver al índice', administracion_path, :class=>'btn btn-danger'
+    .row
+      .col-sm-12
+        .card.mb-12
+          %h3.card-header Categorías
+          
+          .card-body
+            = collection_select(:category_id, :category_id, Category.all.order(:name), :id, :name, {:prompt => 'Selecciona una categoría'}, {:class => 'custom-select'})
+            = link_to 'Añadir', new_config_outlet_path(:category_id => @category_id), :class=>'btn btn-primary btn-sm'
+          
+          %ul.list-group.list-group-flush
+            - @categories.each do |cat|
+              - cat.each do |c|
+                - if !c.nil?
+                  %li.list-group-item
+                    = c.name
+    
+    .row
+      .col-sm-12
+        .card.mb-12
+          %h3.card-header Tipos de productos
+          
+          .card-body
+            = collection_select(:product_type_id, :product_type_id, ProductType.all.order(:name), :id, :name, {:prompt => 'Selecciona un tipo'}, {:class => 'custom-select'})
+            = link_to 'Añadir', new_product_path, :class=>'btn btn-primary btn-sm'
+            
+          %ul.list-group.list-group-flush
+            - @productTypes.each do |pt|
+              - pt.each do |p|
+                - if !p.nil?
+                  %li.list-group-item
+                    = p.name
+
+    = link_to 'Volver al índice', administracion_path, :class=>'btn btn-danger'

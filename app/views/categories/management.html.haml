@@ -53,6 +53,16 @@
           .row
             .col-sm-6
               .bs-component
+                .panel.panel-primary
+                  .panel-heading
+                    %h3 Outlet
+                  %center
+                    =link_to image_tag('Outlet.png', :size=>'400x200'), new_config_outlet_path
+  
+                    
+          .row
+            .col-sm-6
+              .bs-component
                 .panel.panel-danger
                   .panel-heading
                     %h3=link_to 'Fotos de portada', image_homes_path

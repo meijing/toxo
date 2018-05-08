@@ -1,0 +1,49 @@
+.row
+  .col-sm-12
+    .well.bs-component
+      .form-horizontal
+        = form_for @config_outlet do |f|
+          -set_params(@category_id, @product_type_id, nil)
+          .row
+            .col-sm-12
+              .card.mb-12
+                %h3.card-header Categorías
+                
+                .card-body
+                  = f.collection_select :category_id, Category.all.order(:name), :id, :name, :class=>'form-control',:prompt => 'Selecciona una categoría'
+                  = f.submit 'Añadir', :class=>'btn btn-primary btn-sm'
+                  
+                - if @categories.nil? || @categories.empty?
+                  .card-body
+                    %p No se ha añadido ninguna
+                - else
+                  %ul.list-group.list-group-flush
+                    - @categories.each do |cat|
+                      - if !cat.nil?
+                        %li.list-group-item
+                          = cat.name
+                          - @conf = ConfigOutlet.where('category_id = ?', cat.id).first
+                          = link_to (image_tag 'delete.jpg', :size=>'20x20'), @conf, method: :delete, data: { confirm: '¿Está seguro de borrar la categoría?' }
+
+          .row
+            .col-sm-12
+              .card.mb-12
+                %h3.card-header Tipos de productos
+                
+                .card-body
+                  = f.collection_select :product_type_id, ProductType.all.order(:name), :id, :name, :class=>'form-control',:prompt => 'Selecciona un tipo'
+                  = f.submit 'Añadir', :class=>'btn btn-primary btn-sm'
+                
+                - if @productTypes.nil? || @productTypes.empty?
+                  .card-body
+                    %p No se ha añadido ninguno
+                - else
+                  %ul.list-group.list-group-flush
+                    - @productTypes.each do |pt|
+                      - if !pt.nil?
+                        %li.list-group-item
+                          = pt.name
+                          - @conf = ConfigOutlet.where('product_type_id = ?', pt.id).first
+                          = link_to (image_tag 'delete.jpg', :size=>'20x20'), @conf, method: :delete, data: { confirm: '¿Está seguro de borrar el tipo de producto?' }
+          
+        

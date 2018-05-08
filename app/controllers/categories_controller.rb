@@ -65,6 +65,24 @@ class CategoriesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def config_outlet
+    
+    @categories = Category.all.order(:name).in_groups_of(3)
+    @productTypes = ProductType.all.order(:name).in_groups_of(3)
+
+  end
+  
+  def new_config_outlet
+    
+    @category_id = params[:category_id]
+    
+    if !@category_id.nil? && ConfigOutlet.find(@category_id).nil?
+      @ConfigOutlet.new(:category_id => @category_id).save
+    end
+
+    redirect_to config_outlet_path
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -76,4 +94,6 @@ class CategoriesController < ApplicationController
     def category_params
       params.require(:category).permit(:name)
     end
+    
+  
 end

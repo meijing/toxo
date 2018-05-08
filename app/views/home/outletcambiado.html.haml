@@ -17,13 +17,12 @@
                     = @desctypeproduct
             .row.bs-component
               %ul.nav.nav-tabs
+                - @nameCategoriesOutlet.each do |cat|
+                  %li.nav-item
+                    = link_to cat.name,outletcambiado_path(:type=>cat.tipo, :name_type => cat.name,:anchor=>'toxo_outlet')
                 %li.nav-item
-                  = link_to 'Viaje',outletcambiado_path(:type=>"V",:anchor=>'toxo_outlet')
-                %li.nav-item
-                  = link_to 'Bolsos', outletcambiado_path(:type=>"B",:anchor=>'toxo_outlet')
-                %li.nav-item
-                  = link_to 'Otros', outletcambiado_path(:type=>"O",:anchor=>'toxo_outlet')
-            
+                  = link_to 'Otros',outletcambiado_path(:type=>3, :name_type =>'Otros',:anchor=>'toxo_outlet')
+                    
             -if !@products.nil?
               -@products.each do |rowproduct|
                 .row

@@ -26,7 +26,21 @@ class Product < ActiveRecord::Base
     Product.where('outlet=1')
   end
   
-  def self.get_all_products_outlet_cambiado(type)
+  def self.get_all_products_outlet_cambiado(type, typename)
+    if type == '1' then
+      Product.joins('join mark_product_types mpt on mpt.product_type_id = products.product_type_id and mpt.mark_id = products.mark_id and products.category_id = mpt.category_id').joins('join category_product_types cpt on cpt.product_type_id = mpt.product_type_id and cpt.category_id = products.category_id').joins('join categories cat on cat.id = cpt.category_id').joins('join marks m on m.id = mpt.mark_id').where('products.outlet=1 and m.hidden = 0 and cat.name like ?', typename).order('m.name, products.name').in_groups_of(3)
+    elsif type == '2' then
+      Product.joins('join mark_product_types mpt on mpt.product_type_id = products.product_type_id and mpt.mark_id = products.mark_id and products.category_id = mpt.category_id').joins('join category_product_types cpt on cpt.product_type_id = mpt.product_type_id and cpt.category_id = products.category_id').joins('join product_types pt on pt.id = products.product_type_id').joins('join marks m on m.id = mpt.mark_id').where('products.outlet=1 and m.hidden = 0 and pt.name like ?', typename).order('m.name, products.name').in_groups_of(3)
+    elsif type == '3' then
+      @nameCategoriesOutlet = Category.select('name').joins('join config_outlets cf on cf.category_id = categories.id')
+      @nameProductTypesOutlet = ProductType.select('name').joins('join config_outlets cf on cf.product_type_id = product_types.id')
+      Product.joins('join mark_product_types mpt on mpt.product_type_id = products.product_type_id and mpt.mark_id = products.mark_id and products.category_id = mpt.category_id').joins('join category_product_types cpt on cpt.product_type_id = mpt.product_type_id and cpt.category_id = products.category_id').joins('join product_types pt on pt.id = products.product_type_id').joins('join categories cat on cat.id = cpt.category_id').joins('join marks m on m.id = mpt.mark_id').where('products.outlet=1 and m.hidden = 0 and pt.name not in (?) and cat.name not in (?)', @nameProductTypesOutlet, @nameCategoriesOutlet).order('m.name, products.name').in_groups_of(3)
+    else
+      Product.joins(:mark).where('outlet=1 and marks.hidden = 0').order('marks.name, products.name').in_groups_of(3)
+    end 
+  end
+  
+   def self.get_all_products_outlet_cambiadoBack(type)
     if type == 'V' then
       Product.joins('join mark_product_types mpt on mpt.product_type_id = products.product_type_id and mpt.mark_id = products.mark_id and products.category_id = mpt.category_id').joins('join category_product_types cpt on cpt.product_type_id = mpt.product_type_id and cpt.category_id = products.category_id').joins('join categories cat on cat.id = cpt.category_id').joins('join marks m on m.id = mpt.mark_id').where('products.outlet=1 and m.hidden = 0 and cat.name like ?', 'Viaje').order('m.name, products.name').in_groups_of(3)
     elsif type == 'B' then
