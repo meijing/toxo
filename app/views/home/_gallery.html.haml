@@ -18,4 +18,4 @@
                   %h4
                     %b=product.name
                   %p
-                    =product.description.html_safe
+                    =simple_format(product.description)
