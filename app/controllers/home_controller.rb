@@ -66,7 +66,7 @@ class HomeController < ApplicationController
     end
   end
 
-  def outlet
+  def outletBack
     @products = Product.get_all_products_outlet
   end
 
@@ -92,7 +92,7 @@ class HomeController < ApplicationController
   
   end
   
-  def outletcambiado
+  def outlet
     @nameCategoriesOutlet = Category.select('name, 1 as tipo').joins('join config_outlets cf on cf.category_id = categories.id')
     @nameCategoriesOutlet = @nameCategoriesOutlet + (ProductType.select('name, 2 as tipo').joins('join config_outlets cf on cf.product_type_id = product_types.id'))
     
