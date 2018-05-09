@@ -31,7 +31,9 @@ Product.find(2749).update(description: 'Bolso tote en eco-piel de la firma CAMIN
 Product.find(2955).update(description: 'Malata-trolley cabina en poliester de AMERICAN TUORISTER by Samsonite. (36G001001).');
 Product.find(2752).update(description: 'Bolso bandolera en eco-piel de la firma CAMINATTA. (A1525082OU).');
 Product.find(2699).update(description: 'Mochila de la firma HEDGREN en fibra con departamento para PC de 15" y Tablet. (HBPM08).');
-Product.find(3036).update(description: 'Cartera mano y tira de colgar en piel de la firma BIBA. (CAC2L).');
+if !Product.find(3036).nil? then
+  Product.find(3036).update(description: 'Cartera mano y tira de colgar en piel de la firma BIBA. (CAC2L).');
+end
 Product.find(3037).update(description: 'Cartera-sobre en piel de la firma GALLARDO. (6401000OU).');
 Product.find(2961).update(description: 'Malata-spinner grande de SAMSONITE con expansible. (80d000005).');
 Product.find(2755).update(description: 'Bolso-maletín en eco-piel de la firma CAMINATTA. (A2044082OU).');
