@@ -19,7 +19,6 @@ Product.find(2505).update(description: 'Mone-billetera de la firma CAMINATTA en 
 Product.find(2495).update(description: 'Mone-billetera de la firma CAMINATTA en eco-piel. Marrón (A195934082). Burdeos (A195928082).');
 Product.find(2716).update(description: 'Bolso bandolera de la firma HEDGREN en fibra-piel. (HCCH12).');
 Product.find(2793).update(description: 'Bolso baguette piel. (0501507OU).');
-Product.find(2691).update(description: 'Mochila de la firma HEDGREN  en fibra con departamento para ordenador de 15.6". (HZPR11).');
 Product.find(3086).update(description: 'Mochila en eco-piel de CAMINATTA. (A4152082).');
 Product.find(2584).update(description: 'Chal de la firma PASSIGATTI  60% acrílico - 40% viscosa. (17211124). Disponible en azul.');
 Product.find(2583).update(description: 'Chal de la firma PASSIGATTI  75%  algodón - 15% poliester - 10% metal. (17212120).');
