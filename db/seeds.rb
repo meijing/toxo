@@ -6,4 +6,4 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Product.find(2420).update(outlet_price: 'Bolso bowling de la firma NOCO en charol-pelo sintético con tira de colgar. (1729265N) y (1729265M).');
+Product.find(2420).update(description: 'Bolso bowling de la firma NOCO en charol-pelo sintético con tira de colgar. (1729265N) y (1729265M).');
