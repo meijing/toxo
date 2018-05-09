@@ -8,7 +8,6 @@
 
 Product.find(2420).update(description: 'Bolso bowling de la firma NOCO en charol-pelo sintético con tira de colgar. (1729265N) y (1729265M).');
 Product.find(2952).update(description: 'Maleta-spinner cabina de AMERICAN TOURISTER by Samsonite. (37G001001).');
-Product.find(2951).update(description: 'Mochila ante de la firma española ALBERTINI. (ac1963).');
 Product.find(3084).update(description: 'Bolso drawstring en eco-piel de CAMINATTA. (A4132082).');
 Product.find(2456).update(description: 'Bolso bowling de la firma CAMINATTA en eco-piel, con tira larga y bolsillos laterales, delante y detrás. (A475421082).');
 Product.find(3027).update(description: 'Bolso hobo en eco-piel de la firma CAMINATTA. (A141218082).');
