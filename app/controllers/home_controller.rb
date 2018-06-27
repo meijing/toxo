@@ -76,8 +76,7 @@ class HomeController < ApplicationController
     if !@cat_id.nil?
       @products = Product.where('sale = ? and (outlet is null or outlet = 0) and (? is null or product_type_id=?) and category_id = ?  and (new_collection is null or new_collection = 0)', 1, @pt_id, @pt_id, @cat_id).order(:name)
     else
-      @productsRandom = Product.where('sale = ? and (outlet is null or outlet = 0) and (new_collection is null or new_collection = 0)', 1).limit(15).order('random()')
-      @products = @productsRandom.order('name')
+      @products = Product.where('sale = ? and (outlet is null or outlet = 0) and (new_collection is null or new_collection = 0)', 1).limit(15).order('name,random()')
     end
   end
 
