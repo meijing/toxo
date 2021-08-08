@@ -26,6 +26,7 @@ class TextosController < ApplicationController
   def create
     @texto = Texto.new(texto_params)
 
+    #crear texto
     respond_to do |format|
       if @texto.save
         format.html { redirect_to textos_path, notice: 'Texto was successfully created.' }
