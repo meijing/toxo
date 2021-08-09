@@ -1,9 +1,12 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
-
-gem 'pg'
+gem 'rails', '4.2.8'
+#gem 'rails', github: 'rails/rails', branch: '4-0-stable'
+gem 'activerecord', "~>4.2.8"
+gem 'activesupport', "~>4.2.8"
+gem 'actionpack', "~>4.2.8"
+#gem 'pg'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', group: [:development, :test]
@@ -20,7 +23,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+ gem 'therubyracer', platforms: :ruby
+#gem 'therubyracer', '~> 0.12.3'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -55,8 +59,6 @@ gem 'twitter-bootswatch-rails-helpers'
 
 gem "haml", ">= 3.0.0"
 gem "haml-rails"
-
-gem 'therubyracer'
 
 gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
 gem 'flexslider'
