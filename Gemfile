@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "~> 2.6.3"
+ruby "~> 2.6.8"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.8'
@@ -9,7 +9,7 @@ gem 'activerecord', "~>4.2.8"
 gem 'activesupport', "~>4.2.8"
 gem 'actionpack', "~>4.2.8"
 group :production do
-  gem 'pg'
+ gem 'pg', '~> 0.20'
 end
 
 # Use sqlite3 as the database for Active Record
