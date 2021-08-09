@@ -6,7 +6,9 @@ gem 'rails', '4.2.8'
 gem 'activerecord', "~>4.2.8"
 gem 'activesupport', "~>4.2.8"
 gem 'actionpack', "~>4.2.8"
-#gem 'pg'
+group :production do
+  gem 'pg'
+end
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', group: [:development, :test]
